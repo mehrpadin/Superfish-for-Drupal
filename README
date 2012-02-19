@@ -43,6 +43,12 @@ Contents:
 
 Changes:
 --------
+September, 2011
+---------------
+- style/light-blue.css image path fixed.
+- style/spring.css image path fixed.
+- style/white.css image path fixed.
+
 March, 2011
 -----------
 - supersubs.js slightly modified in order to ignore the Mega-menus.

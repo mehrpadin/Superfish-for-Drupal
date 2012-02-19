@@ -59,10 +59,10 @@
   background-color: transparent;
 }
 .sf-menu.sf-style-white .sf-sub-indicator {
-  background-image: url('../../images/arrows-777777.png');
+  background-image: url('../images/arrows-777777.png');
 }
 .sf-menu.sf-style-white.rtl .sf-sub-indicator {
-  background-image: url('../../images/arrows-777777-rtl.png');
+  background-image: url('../images/arrows-777777-rtl.png');
 }
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol li {

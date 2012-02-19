@@ -60,10 +60,10 @@
   background-color: transparent;
 }
 .sf-menu.sf-style-light-blue .sf-sub-indicator {
-  background-image: url('../../images/arrows-ffffff.png');
+  background-image: url('../images/arrows-ffffff.png');
 }
 .sf-menu.rtl.sf-style-light-blue .sf-sub-indicator {
-  background-image: url('../../images/arrows-ffffff-rtl.png');
+  background-image: url('../images/arrows-ffffff-rtl.png');
 }
 .sf-menu.sf-style-light-blue ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-light-blue ul.sf-megamenu li.sf-megamenu-wrapper ol li {
