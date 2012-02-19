@@ -10,7 +10,7 @@
  */
 /*
  * This is not the original jQuery Supersubs plugin.
- * Please refer to the README for more information.
+ * Please refer to the _README.txt for more information.
  */
 
 (function($){

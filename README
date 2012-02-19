@@ -43,6 +43,11 @@ Contents:
 
 Changes:
 --------
+December, 2011
+--------------
+- Several changes to the core CSS files.
+- Introducing Simple, a beautiful new style.
+
 September, 2011
 ---------------
 - style/light-blue.css image path fixed.
