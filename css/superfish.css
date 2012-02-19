@@ -8,27 +8,29 @@
   line-height: 1.0;
   z-index: 497;
 }
-.sf-menu a {
-  display: block;
-  position: relative;
+.sf-menu ul {
+  left: 0;
+  position: absolute;
+  top: -99999em;
+  width: 12em;
+}
+.sf-menu ul li {
+  width: 100%;
 }
 .sf-menu li {
   float: left;
   position: relative;
   z-index: 498;
 }
-.sf-menu li:hover {
-  visibility: inherit;
+.sf-menu a {
+  display: block;
+  position: relative;
 }
-.sf-menu ul {
-  left: 0;
-  position: absolute;
-  top: -99999em;
-  width: 12em;
+.sf-menu li:hover,
+.sf-menu li.sfHover,
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
   z-index: 499;
-}
-.sf-menu ul li {
-  width: 100%;
 }
 .sf-menu li:hover > ul,
 .sf-menu li.sfHover > ul {
@@ -78,8 +80,10 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-menu ul li.sfHover > a > .sf-sub-indicator {
   background-position: -10px 0;
 }
-.sf-shadow ul {
-  background: url('../images/shadow.png') no-repeat bottom right;
+.sf-menu.sf-horizontal.sf-shadow ul,
+.sf-menu.sf-vertical.sf-shadow ul,
+.sf-menu.sf-navbar.sf-shadow ul ul {
+  background: url('../images/shadow.png') no-repeat right bottom;
   padding: 0 8px 9px 0 !important;
   -webkit-border-top-right-radius: 8px;
   -webkit-border-bottom-left-radius: 8px;
@@ -138,8 +142,10 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-menu.rtl ul li.sfHover > a > .sf-sub-indicator {
   background-position: 0 0;
 }
-.rtl.sf-shadow ul {
-  background: url('../images/shadow.png') no-repeat bottom left;
+.sf-menu.rtl.sf-horizontal.sf-shadow ul,
+.sf-menu.rtl.sf-vertical.sf-shadow ul,
+.sf-menu.rtl.sf-navbar.sf-shadow ul ul {
+  background-position: bottom left;
   padding: 0 0 9px 8px !important;
   -webkit-border-radius: 8px;
   -webkit-border-top-right-radius: 0;

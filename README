@@ -18,6 +18,8 @@ Contents:
 ---------
 - superfish.js 
 -- The jQuery Superfish plug-in version 1.4.8.
+-- It is slightly modified in order to make it compatible with screen reader software.
+-- The original Superfish plug-in can be found at the homepage of the jQuery Superfish plugin.
 
 - supersubs.js
 -- The jQuery Supersubs plug-in version 0.2-beta.
@@ -43,6 +45,17 @@ Contents:
 
 Changes:
 --------
+February, 2012
+--------------
+- Some important CSS improvements.
+- supposition.js improved.
+- /style/simple/simple.css improved.
+- Added a centre-aligned version of the Simple style.
+
+January, 2012
+-------------
+- superfish.js slightly modified in order to work with screen reader software.
+
 December, 2011
 --------------
 - Several changes to the core CSS files.

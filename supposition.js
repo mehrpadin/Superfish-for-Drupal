@@ -10,7 +10,7 @@
  */
 /*
  * This is not the original jQuery Supersubs plugin.
- * Please refer to the _README.txt for more information.
+ * Please refer to the README for more information.
  */
 
 (function($){
@@ -22,7 +22,7 @@
       || document.body[dir=='y' ? 'scrollTop' : 'scrollLeft'];
     },
     onHide = function(){
-      this.css({Top:'',Right:'',Bottom:'',Left:''});
+      this.css({bottom:''});
     },
     onBeforeShow = function(){
       this.each(function(){
@@ -48,7 +48,8 @@
         }
         var windowHeight = $w.height(),
         offsetTop = $u.offset().top,
-        menuParentHeight = $u.parent().outerHeight(true),
+        menuParentShadow = ($u.closest('.sf-menu').hasClass('sf-shadow') && $u.css('padding-bottom').length > 0) ? parseInt($u.css('padding-bottom').slice(0,-2)) : 0,
+        menuParentHeight = ($u.closest('.sf-menu').hasClass('sf-vertical')) ? '-' + menuParentShadow : $u.parent().outerHeight(true) - menuParentShadow,
         menuHeight = $u.height(),
         baseline = windowHeight + _offset('y');
         var expandUp = ((offsetTop + menuHeight > baseline) && (offsetTop > menuHeight));
