@@ -42,6 +42,10 @@
   left: 12em;
   top: 0;
 }
+.sf-hidden {
+  left: 0 !important;
+  top: -99999em !important;
+}
 .sf-menu a.sf-with-ul {
   min-width: 1px;
 }

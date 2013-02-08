@@ -104,7 +104,7 @@
         not = (o.retainPath===true) ? o.$path : '';
       o.retainPath = false;
       var $ul = $(['li.',o.hoverClass].join(''),this).add(this).not(not).removeClass(o.hoverClass)
-          .find('>ul').css({top: '-99999em'}).addClass('sf-hidden');
+          .find('>ul').addClass('sf-hidden');
       o.onHide.call($ul);
       return this;
     },
@@ -112,7 +112,7 @@
       var o = sf.op,
         sh = sf.c.shadowClass+'-off',
         $ul = this.addClass(o.hoverClass)
-          .find('>ul.sf-hidden').css({display: 'none', top: ''}).removeClass('sf-hidden');
+          .find('>ul.sf-hidden').hide().removeClass('sf-hidden');
       sf.IE7fix.call($ul);
       o.onBeforeShow.call($ul);
       $ul.animate(o.animation,o.speed,function(){ sf.IE7fix.call($ul); o.onShow.call($ul); });
