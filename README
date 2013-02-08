@@ -33,7 +33,11 @@ Contents:
    http://users.tpg.com.au/j_birch/plugins/superfish/supposition-test/
 
 - sftouchscreen.js
--- The jQuery sf-Touchscreen plug-in version 1.0-beta.
+-- The jQuery sf-Touchscreen plug-in version 1.2-beta.
+-- It is developed as a part of the Superfish project of the Drupal CMS.
+
+- sfsmallscreen.js
+-- The jQuery sf-Smallscreen plug-in version 1.0-beta.
 -- It is developed as a part of the Superfish project of the Drupal CMS.
 
 - jquery.bgiframe.min.js
@@ -45,6 +49,13 @@ Contents:
 
 Changes:
 --------
+February, 2013
+--------------
+- sfSmallscreen plug-in.
+- sfTouchscreen overhaul.
+- Potential bug fxied.
+- Color change for the .sf-description in all the styles in the /styles folder.
+
 February, 2012
 --------------
 - Some important CSS improvements.
