@@ -22,7 +22,7 @@
 
     function activate(menu){
       // Select hyperlinks from parent menu items.
-      menu.find('li > ul').closest('li').children('a').each(function(){
+      menu.find('li').closest('ul').closest('li').children('a').each(function(){
         var item = $(this);
         // No .toggle() here as it's not possible to reset it.
         item.click(function(event){
