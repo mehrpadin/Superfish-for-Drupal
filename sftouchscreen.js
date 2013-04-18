@@ -66,7 +66,8 @@
         break;
         case 'useragent_custom' :
           if (options.useragent != ''){
-            if (navigator.userAgent.match(options.useragents)){
+            var ua = RegExp(options.useragent, 'i');
+            if (navigator.userAgent.match(ua)){
               activate(menu);
             }
           }
