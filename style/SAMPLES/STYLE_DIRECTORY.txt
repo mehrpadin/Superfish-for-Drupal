@@ -4,9 +4,9 @@
  * Instructions:
  *
  * 1. Replace the STYLENAME (below) with the name of the new style.
- *    For example, if the style name is drupal the class will be sf-style-drupal then.
+ *    For example, if the style name is drupal, the class will be sf-style-drupal .
  *
- * 2. Save the file as a CSS with the style name as its name.
+ * 2. Save the file as CSS with the style name as its name.
  *    For example, if the style name is drupal the file will be drupal.css and therefore
  *    libraries/superfish/style/drupal.css.
  *
