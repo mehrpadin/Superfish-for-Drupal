@@ -1,5 +1,5 @@
 /*
- * sf-Touchscreen v1.2b - Provides touchscreen compatibility for the jQuery Superfish plugin.
+ * sf-Touchscreen v1.3b - Provides touchscreen compatibility for the jQuery Superfish plugin.
  *
  * Developer's note:
  * Built as a part of the Superfish project for Drupal (http://drupal.org/project/superfish)
@@ -22,8 +22,10 @@
 
     function activate(menu){
       // Select hyperlinks from parent menu items.
-      menu.find('li > ul').closest('li').children('a').each(function(){
-        var item = $(this);
+      // has() cannot be used because it needs jQuery 1.4 or higher.
+      var links = menu.find('li').children('ul').closest('li').children('a');
+      for (var a = 0; a < links.length; a++) {
+        var item = links.eq(a);
         // No .toggle() here as it's not possible to reset it.
         item.click(function(event){
           // Already clicked? proceed to the URL.
@@ -39,11 +41,11 @@
           // Reset everything.
           item.removeClass('sf-clicked');
         });
-      });
+      }
     }
     // Return original object to support chaining.
-    return this.each(function(){
-      var menu = $(this),
+    for (var b = 0; b < this.length; b++) {
+      var menu = $(this).eq(b),
       mode = options.mode;
       // The rest is crystal clear, isn't it? :)
       switch (mode){
@@ -78,6 +80,7 @@
           }
         break;
       }
-    });
+    }
+    return this;
   };
 })(jQuery);

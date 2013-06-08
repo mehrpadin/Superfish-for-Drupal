@@ -9,7 +9,7 @@
  *  http://www.gnu.org/licenses/gpl.html
  */
 /*
- * This is not the original jQuery Supersubs plugin.
+ * This is not the original jQuery Supposition plugin.
  * Please refer to the README for more information.
  */
 
@@ -33,17 +33,15 @@
         menuParentLeft = $u.closest('li').offset().left,
         totalRight = $w.width() + _offset('x'),
         menuRight = $u.offset().left + menuWidth,
-        exactMenuWidth = (menuRight > (menuParentWidth + menuParentLeft)) ? menuWidth - (menuRight - (menuParentWidth + menuParentLeft)) : menuWidth;  
+        exactMenuWidth = (menuRight > (menuParentWidth + menuParentLeft)) ? menuWidth - (menuRight - (menuParentWidth + menuParentLeft)) : menuWidth;
         if ($u.parents('.sf-js-enabled').hasClass('rtl')) {
           if (menuParentLeft < exactMenuWidth) {
-            $u.css('left', menuParentWidth + 'px');
-            $u.css('right', 'auto');
+            $u.css({left:menuParentWidth + 'px',right:'auto'});
           }
         }
         else {
           if (menuRight > totalRight && menuParentLeft > menuWidth) {
-            $u.css('right', menuParentWidth + 'px');
-            $u.css('left', 'auto');
+            $u.css({right:menuParentWidth + 'px',left:'auto'});
           }
         }
         var windowHeight = $w.height(),
@@ -54,8 +52,7 @@
         baseline = windowHeight + _offset('y');
         var expandUp = ((offsetTop + menuHeight > baseline) && (offsetTop > menuHeight));
         if (expandUp) {
-          $u.css('bottom', menuParentHeight + 'px');
-          $u.css('top', 'auto');
+          $u.css({bottom:menuParentHeight + 'px',top:'auto'});
         }
         $u.css('display','none');
       });

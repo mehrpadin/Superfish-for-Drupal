@@ -1,6 +1,6 @@
 /*
- * Supersubs v0.2b - jQuery plugin
- * Copyright (c) 2008 Joel Birch
+ * Supersubs v0.3b - jQuery plugin
+ * Copyright (c) 2013 Joel Birch
  *
  * Dual licensed under the MIT and GPL licenses:
  *  http://www.opensource.org/licenses/mit-license.php
@@ -20,75 +20,69 @@
   $.fn.supersubs = function(options){
     var opts = $.extend({}, $.fn.supersubs.defaults, options);
     // return original object to support chaining
-    return this.each(function() {
+    // Although this is unnecessary due to the way the module uses these plugins.
+    for (var a = 0; a < this.length; a++) {
       // cache selections
-      var $$ = $(this);
+      var $$ = $(this).eq(a),
       // support metadata
-      var o = $.meta ? $.extend({}, opts, $$.data()) : opts;
-      // get the font size of menu.
-      // .css('fontSize') returns various results cross-browser, so measure an em dash instead
-      var fontsize = $('<li id="menu-fontsize">&#8212;</li>').css({
-        'padding' : 0,
-        'position' : 'absolute',
-        'top' : '-99999em',
-        'width' : 'auto'
-      }).appendTo($$).width(); //clientWidth is faster, but was incorrect here
-      // remove em dash
-      $('#menu-fontsize').remove();
-
+      o = $.meta ? $.extend({}, opts, $$.data()) : opts;
       // Jump on level if it's a "NavBar"
       if ($$.hasClass('sf-navbar')) {
-        $$ = $('li > ul', $$);
+        $$ = $$.children('li').children('ul');
       }
-      // cache all ul elements 
+      // cache all ul elements
       $ULs = $$.find('ul:not(.sf-megamenu)');
+      // get the font size of menu.
+      // .css('fontSize') returns various results cross-browser, so measure an em dash instead
+      var fontsize = $('<li id="menu-fontsize">&#8212;</li>'),
+      size = fontsize.attr('style','padding:0;position:absolute;top:-99999em;width:auto;')
+      .appendTo($$)[0].clientWidth; //clientWidth is faster than width()
+      // remove em dash
+      fontsize.remove();
+
       // loop through each ul in menu
-      $ULs.each(function(i) {
+      for (var b = 0; b < $ULs.length; b++) {
+        var
         // cache this ul
-        var $ul = $ULs.eq(i);
+        $ul = $ULs.eq(b),
         // get all (li) children of this ul
-        var $LIs = $ul.children();
+        $LIs = $ul.children(),
         // get all anchor grand-children
-        var $As = $LIs.children('a');
+        $As = $LIs.children('a');
         // force content to one line and save current float property
-        var liFloat = $LIs.css('white-space','nowrap').css('float');
+        $LIs.css('white-space','nowrap');
         // remove width restrictions and floats so elements remain vertically stacked
-        var emWidth = $ul.add($LIs).add($As).css({
-          'float' : 'none',
-          'width'  : 'auto'
-        })
+        $ul.add($LIs).add($As).css({float:'none',width:'auto'});
         // this ul will now be shrink-wrapped to longest li due to position:absolute
-        // so save its width as ems. Clientwidth is 2 times faster than .width() - thanks Dan Switzer
-        .end().end()[0].clientWidth / fontsize;
+        // so save its width as ems.
+        var emWidth = $ul.get(0).clientWidth / size;
         // add more width to ensure lines don't turn over at certain sizes in various browsers
         emWidth += o.extraWidth;
         // restrict to at least minWidth and at most maxWidth
-        if (emWidth > o.maxWidth)    { emWidth = o.maxWidth; }
-        else if (emWidth < o.minWidth)  { emWidth = o.minWidth; }
+        if (emWidth > o.maxWidth) {emWidth = o.maxWidth;}
+        else if (emWidth < o.minWidth) {emWidth = o.minWidth;}
         emWidth += 'em';
         // set ul to width in ems
-        $ul.css('width',emWidth);
+        $ul.css({width:emWidth});
         // restore li floats to avoid IE bugs
         // set li width to full width of this ul
         // revert white-space to normal
-        $LIs.css({
-          'float' : liFloat,
-          'width' : '100%',
-          'white-space' : 'normal'
-        })
-        // update offset position of descendant ul to reflect new width of parent
-        .each(function(){
-          var $childUl = $('>ul',this);
-          var offsetDirection = $childUl.css('left')!==undefined ? 'left' : 'right';
-          $childUl.css(offsetDirection,emWidth);
-        });
-      });
-    });
+        $LIs.add($As).css({float:'',width:'',whiteSpace:''});
+        // update offset position of descendant ul to reflect new width of parent.
+        // set it to 100% in case it isn't already set to this in the CSS
+        for (var c = 0; c < $LIs.length; c++) {
+          var $childUl = $LIs.eq(c).children('ul');
+          var offsetDirection = $childUl.css('left') !== undefined ? 'left' : 'right';
+          $childUl.css(offsetDirection,'100%');
+        }
+      }
+    }
+    return this;
   };
   // expose defaults
   $.fn.supersubs.defaults = {
-    minWidth: 9, // requires em unit.
-    maxWidth: 25, // requires em unit.
-    extraWidth: 0 // extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
+    minWidth: 12, // requires em unit.
+    maxWidth: 27, // requires em unit.
+    extraWidth: 1 // extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
   };
 })(jQuery); // plugin code ends
