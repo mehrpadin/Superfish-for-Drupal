@@ -63,6 +63,39 @@
 .sf-menu.sf-style-spring.rtl .sf-sub-indicator {
   background-image: url('../images/arrows-777777-rtl.png');
 }
+div.sf-accordion-toggle.sf-style-spring a {
+  background: #ecffdf;
+  border: 1px solid #ffffff;
+  color: #37731f;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
+.sf-menu.sf-style-spring.sf-accordion li.sf-expanded {
+  background-color: #bff6a9;
+}
+div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
+.sf-menu.sf-style-spring.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+.sf-menu.sf-style-spring.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-spring.sf-accordion li li a {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-spring.sf-accordion li li li a {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-spring.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-spring.sf-accordion li li li li a {
+  padding-left: 5em;
+}
 .sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper ol li {
   margin: 0;

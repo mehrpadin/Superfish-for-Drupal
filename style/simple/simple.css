@@ -1,5 +1,7 @@
-.block-superfish {
-  overflow: visible;
+.block-superfish,
+.block-superfish .content {
+  overflow: visible !important;
+  width: 100%;
 }
 .sf-menu.sf-style-simple {
   float: left;
@@ -104,7 +106,7 @@
   top: 38px;
 }
 .sf-menu.sf-style-simple a,
-.sf-menu.sf-style-simple a:visited  {
+.sf-menu.sf-style-simple a:visited {
   color: #555555;
   font: normal 12px Arial, Helvetica, Tahoma, Verdana, Sans-serif;
   padding: 1.4em 1.5em;
@@ -143,7 +145,8 @@
   border-left-color: #ffffff;
 }
 .sf-menu.sf-style-simple.sf-horizontal > li.first,
-.sf-menu.sf-style-simple.sf-navbar > li.first {
+.sf-menu.sf-style-simple.sf-navbar > li.first,
+.sf-menu.sf-style-simple.sf-navbar > li.firstandlast {
   border-left-color: #e0e0e0;
 }
 .sf-menu.sf-style-simple.sf-horizontal.rtl > li.first,
@@ -159,10 +162,12 @@
   border-bottom: 1px solid #e0e0e0;
 }
 .sf-menu.sf-style-simple.sf-navbar li > ul > li.first,
+.sf-menu.sf-style-simple.sf-navbar li > ul > li.firstandlast,
 .sf-menu.sf-style-simple.sf-navbar.rtl li > ul > li.last {
   border-left: 1px solid #e0e0e0;
 }
 .sf-menu.sf-style-simple.sf-navbar li > ul > li.last,
+.sf-menu.sf-style-simple.sf-navbar li > ul > li.firstandlast,
 .sf-menu.sf-style-simple.sf-navbar.rtl li > ul > li.first {
   border-right: 1px solid #e0e0e0;
 }
@@ -194,9 +199,9 @@
   border-bottom-left-radius: 8px;
 }
 .sf-menu.sf-style-simple.sf-horizontal > li.last,
-.sf-menu.sf-style-simple.sf-horizontal li li.sf-total-children-1 > ul > li.first,
-.sf-menu.sf-style-simple.sf-vertical li li.sf-total-children-1 > ul > li.first,
-.sf-menu.sf-style-simple.sf-navbar li li li.sf-total-children-1 > ul > li.first {
+.sf-menu.sf-style-simple.sf-horizontal li li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-vertical li li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-navbar li li li > ul > li.firstandlast {
   -webkit-border-top-right-radius: 8px;
   -webkit-border-bottom-right-radius: 8px;
   -moz-border-radius-topright: 8px;
@@ -204,7 +209,8 @@
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-.sf-menu.sf-style-simple.sf-vertical > li.first {
+.sf-menu.sf-style-simple.sf-vertical > li.first,
+.sf-menu.sf-style-simple.sf-navbar > li.firstandlast {
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
   -moz-border-radius-topleft: 8px;
@@ -215,7 +221,9 @@
 .sf-menu.sf-style-simple.sf-vertical li.last,
 .sf-menu.sf-style-simple.sf-horizontal li li.last,
 .sf-menu.sf-style-simple.sf-navbar li li li.last,
-.sf-menu.sf-style-simple li.sf-total-children-1 > ul > li.first {
+.sf-menu.sf-style-simple.sf-vertical li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-horizontal li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-navbar li > ul > li.firstandlast {
   -webkit-border-bottom-right-radius: 8px;
   -webkit-border-bottom-left-radius: 8px;
   -moz-border-radius-bottomright: 8px;
@@ -261,9 +269,9 @@
   border-top-right-radius: 8px;
 }
 .sf-menu.sf-style-simple.sf-horizontal.rtl > li.last,
-.sf-menu.sf-style-simple.sf-horizontal.rtl li li.sf-total-children-1 > ul > li.first,
-.sf-menu.sf-style-simple.sf-vertical.rtl li li.sf-total-children-1 > ul > li.first,
-.sf-menu.sf-style-simple.sf-navbar.rtl li li li.sf-total-children-1 > ul > li.first {
+.sf-menu.sf-style-simple.sf-horizontal.rtl li li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-vertical.rtl li li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-navbar.rtl li li li > ul > li.firstandlast {
   -webkit-border-radius: 8px;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
@@ -315,13 +323,76 @@
 .sf-menu.sf-style-simple.sf-vertical.rtl li.last,
 .sf-menu.sf-style-simple.sf-horizontal.rtl li li.last,
 .sf-menu.sf-style-simple.sf-navbar.rtl li li li.last,
-.sf-menu.sf-style-simple.rtl li.sf-total-children-1 > ul > li.first {
+.sf-menu.sf-style-simple.sf-vertical.rtl li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-horizontal.rtl li > ul > li.firstandlast,
+.sf-menu.sf-style-simple.sf-navbar.rtl li > ul > li.firstandlast {
   -webkit-border-bottom-right-radius: 8px;
   -webkit-border-bottom-left-radius: 8px;
   -moz-border-radius-bottomright: 8px;
   -moz-border-radius-bottomleft: 8px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+div.sf-accordion-toggle.sf-style-simple {
+  float: left;
+  width: 100%;
+}
+div.sf-accordion-toggle.sf-style-simple a {
+  background: url('images/simple-background.png') repeat-x top left #eeeeee;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #555555;
+  float: left;
+  font: normal 12px Arial, Helvetica, Tahoma, Verdana, Sans-serif;
+  padding: 1em;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+div.sf-accordion-toggle.sf-style-simple a span {
+  background: url('images/simple-accordion-toggle.png') no-repeat center center transparent;
+  height: 32px;
+  float: left;
+  line-height: 99999em;
+  overflow: hidden;
+  text-indent: -99999em;
+  width: 32px;
+}
+div.sf-accordion-toggle.sf-style-simple a.sf-expanded,
+.sf-menu.sf-style-simple.sf-accordion li.sf-expanded {
+  background: url('images/simple-background-active.png') repeat-x top left #fefefe;
+}
+.sf-menu.sf-style-simple.sf-accordion li {
+  border: 1px solid #e0e0e0;
+}
+.sf-menu.sf-style-simple.sf-accordion li li {
+  margin-left: 3.9%;
+  width: 92%;
+}
+.sf-menu.sf-style-simple.sf-accordion li ul {
+  margin: 10px 0;
+}
+.sf-menu.sf-style-simple.sf-accordion li.sf-clone-parent,
+.sf-menu.sf-style-simple.sf-accordion li.first {
+  border-radius: 8px 8px 0 0;
+}
+.sf-menu.sf-style-simple.sf-accordion ul.sf-has-clone-parent > li.first {
+  border-radius: 0;
+}
+.sf-menu.sf-style-simple.sf-accordion ul.sf-has-clone-parent > li.firstandlast,
+.sf-menu.sf-style-simple.sf-accordion li.last {
+  border-radius: 0 0 8px 8px;
+}
+.sf-menu.sf-style-simple.sf-accordion li.firstandlast {
+  border-radius: 8px;
+}
+.sf-menu.sf-style-simple.sf-accordion li a.sf-accordion-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-simple.sf-accordion li.sf-expanded > a.sf-accordion-button {
+  color: #777;
 }
 .sf-menu.sf-style-simple li ul.sf-megamenu li ol li {
   background: none;

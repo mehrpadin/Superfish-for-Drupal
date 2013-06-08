@@ -36,7 +36,7 @@
 .sf-menu.sf-style-pomegranate.sf-navbar {
   background: #79001c;
 }
-.sf-menu.sf-style-pomegranate li li{
+.sf-menu.sf-style-pomegranate li li {
   background: #6c0019;
 }
 .sf-menu.sf-style-pomegranate li li li {
@@ -57,6 +57,39 @@
 }
 .sf-menu.sf-style-pomegranate.sf-navbar li ul li ul {
   background-color: transparent;
+}
+div.sf-accordion-toggle.sf-style-pomegranate a {
+  background: #79001c;
+  border: 1px outset #68000e;
+  color: #ffebee;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-pomegranate a.sf-expanded,
+.sf-menu.sf-style-pomegranate.sf-accordion li.sf-expanded {
+  background-color: #4c0012;
+}
+div.sf-accordion-toggle.sf-style-pomegranate a.sf-expanded,
+.sf-menu.sf-style-pomegranate.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+.sf-menu.sf-style-pomegranate.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-pomegranate.sf-accordion li li a {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-pomegranate.sf-accordion li li li a {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-pomegranate.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-pomegranate.sf-accordion li li li li a {
+  padding-left: 5em;
 }
 .sf-menu.sf-style-pomegranate ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-pomegranate ul.sf-megamenu li.sf-megamenu-wrapper ol li {

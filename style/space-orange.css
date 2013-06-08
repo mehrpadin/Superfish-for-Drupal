@@ -54,6 +54,39 @@
 .sf-menu.sf-style-space-orange.sf-navbar li ul li ul {
   background-color: transparent;
 }
+div.sf-accordion-toggle.sf-style-space-orange a {
+  background: #333333;
+  border: 1px outset #000000;
+  color: #f1f1f1;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-space-orange a.sf-expanded,
+.sf-menu.sf-style-space-orange.sf-accordion li.sf-expanded {
+  background-color: #dc5300;
+}
+div.sf-accordion-toggle.sf-style-space-orange a.sf-expanded,
+.sf-menu.sf-style-space-orange.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+.sf-menu.sf-style-space-orange.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-space-orange.sf-accordion li li a {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-space-orange.sf-accordion li li li a {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-space-orange.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-space-orange.sf-accordion li li li li li a {
+  padding-left: 5em;
+}
 .sf-menu.sf-style-space-orange ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-space-orange ul.sf-megamenu li.sf-megamenu-wrapper ol li {
   margin: 0;
@@ -99,4 +132,4 @@
 }
 .sf-menu.sf-style-space-orange li.sf-parent-children-10 ul.sf-megamenu {
   width: 120em;
-} 
+}

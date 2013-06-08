@@ -59,6 +59,39 @@
 .sf-menu.sf-style-coffee.sf-navbar li ul li ul {
   background-color: transparent;
 }
+div.sf-accordion-toggle.sf-style-coffee a {
+  background: #210c02;
+  border: 1px solid #381301;
+  color: #f1dec6;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-coffee a.sf-expanded,
+.sf-menu.sf-style-coffee.sf-accordion li.sf-expanded {
+  background-color: #52250f;
+}
+div.sf-accordion-toggle.sf-style-coffee a.sf-expanded,
+.sf-menu.sf-style-coffee.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+.sf-menu.sf-style-coffee.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-coffee.sf-accordion li li a {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-coffee.sf-accordion li li li a {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-coffee.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-coffee.sf-accordion li li li li a {
+  padding-left: 5em;
+}
 .sf-menu.sf-style-coffee ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-coffee ul.sf-megamenu li.sf-megamenu-wrapper ol li {
   margin: 0;

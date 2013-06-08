@@ -62,6 +62,45 @@
   background: #c0c0c0;
   outline: 0;
 }
+.sf-menu.sf-style-STYLENAME li:hover > ul,
+.sf-menu.sf-style-STYLENAME li.sfHover > ul {
+  top: 40px;
+}
+.sf-menu.sf-style-STYLENAME .sf-sub-indicator {
+  background-image: url('../images/dropdown-arrows.png');
+}
+div.sf-accordion-toggle.sf-style-STYLENAME a {
+  background: #f0f0f0;
+  color: #0000ff;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-STYLENAME a.sf-expanded,
+.sf-menu.sf-style-STYLENAME.sf-accordion li.sf-expanded {
+  background-color: #c0c0c0;
+}
+div.sf-accordion-toggle.sf-style-STYLENAME a.sf-expanded,
+.sf-menu.sf-style-STYLENAME.sf-accordion li.sf-expanded > a {
+  font-weight: bold;
+}
+.sf-menu.sf-style-STYLENAME.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-STYLENAME.sf-accordion li li a {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-STYLENAME.sf-accordion li li li a {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-STYLENAME.sf-accordion li li li li a {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-STYLENAME.sf-accordion li li li li li a {
+  padding-left: 5em;
+}
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper ol li {
   margin: 0;
