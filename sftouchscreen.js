@@ -24,7 +24,21 @@
     function activate(menu){
       // Select hyperlinks from parent menu items.
       menu.find('li:has(ul)').children('a').each(function(){
-        var item = $(this);
+        var item = $(this),
+        parent = item.closest('li');
+        if (options.behaviour == 2){
+          if (parent.children('a.menuparent').length > 0 && parent.children('ul').children('.sf-clone-parent').length == 0){
+            var
+            // Cloning the hyperlink of the parent menu item.
+            cloneLink = parent.children('a.menuparent').clone(),
+            // Wrapping the hyerplinks in <li>.
+            cloneLink = $('<li class="sf-clone-parent" />').html(cloneLink);
+            // Removing unnecessary stuff.
+            cloneLink.find('.sf-sub-indicator').remove(),
+            // Adding a helper class and attaching them to the sub-menus.
+            parent.children('ul').addClass('sf-has-clone-parent').prepend(cloneLink);
+          }
+        }
         // No .toggle() here as it's not possible to reset it.
         item.click(function(event){
           // Already clicked? proceed to the URL.
@@ -54,37 +68,33 @@
       var menu = $(this).eq(b),
       mode = options.mode;
       // The rest is crystal clear, isn't it? :)
-      switch (mode){
-        case 'always_active' :
+      if (mode == 'always_active'){
+        activate(menu);
+      }
+      else if (mode == 'window_width'){
+        if ($(window).width() < options.breakpoint){
           activate(menu);
-        break;
-        case 'window_width' :
-          if ($(window).width() < options.breakpoint){
-            activate(menu);
-          }
-          var timer;
-          $(window).resize(function(){
-            clearTimeout(timer);
-            timer = setTimeout(function(){
-              if ($(window).width() < options.breakpoint){
-                activate(menu);
-              }
-            }, 100);
-          });
-        break;
-        case 'useragent_custom' :
-          if (options.useragent != ''){
-            var ua = RegExp(options.useragent, 'i');
-            if (navigator.userAgent.match(ua)){
+        }
+        var timer;
+        $(window).resize(function(){
+          clearTimeout(timer);
+          timer = setTimeout(function(){
+            if ($(window).width() < options.breakpoint){
               activate(menu);
             }
-          }
-        break;
-        case 'useragent_predefined' :
-          if (navigator.userAgent.match(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i)){
+          }, 100);
+        });
+      }
+      else if (mode == 'useragent_custom'){
+        if (options.useragent != ''){
+          var ua = RegExp(options.useragent, 'i');
+          if (navigator.userAgent.match(ua)){
             activate(menu);
           }
-        break;
+        }
+      }
+      else if (mode == 'useragent_predefined' && navigator.userAgent.match(/(android|bb\d+|meego)|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i)){
+        activate(menu);
       }
     }
     return this;
