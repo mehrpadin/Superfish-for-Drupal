@@ -17,33 +17,39 @@
     options = $.extend({
       mode: 'inactive',
       breakpoint: 768,
-      useragent: ''
+      useragent: '',
+      behaviour: 2
     }, options);
 
     function activate(menu){
       // Select hyperlinks from parent menu items.
-      // has() cannot be used because it needs jQuery 1.4 or higher.
-      var links = menu.find('li').children('ul').closest('li').children('a');
-      for (var a = 0; a < links.length; a++) {
-        var item = links.eq(a);
+      menu.find('li:has(ul)').children('a').each(function(){
+        var item = $(this);
         // No .toggle() here as it's not possible to reset it.
         item.click(function(event){
           // Already clicked? proceed to the URL.
           if (item.hasClass('sf-clicked')){
-            window.location = item.attr('href');
+            if (options.behaviour == 0){
+              window.location = item.attr('href');
+            }
+            else if (options.behaviour == 1 || options.behaviour == 2){
+              event.preventDefault();
+              item.removeClass('sf-clicked').parent('li').hideSuperfishUl();
+            }
           }
           // Prevent it otherwise.
           else {
             event.preventDefault();
-            item.addClass('sf-clicked');
+            item.addClass('sf-clicked').parent('li').showSuperfishUl();
           }
         }).closest('li').mouseleave(function(){
           // Reset everything.
           item.removeClass('sf-clicked');
         });
-      }
+      });
     }
     // Return original object to support chaining.
+    // This is not necessary actually because of the way the module uses these plugins.
     for (var b = 0; b < this.length; b++) {
       var menu = $(this).eq(b),
       mode = options.mode;
