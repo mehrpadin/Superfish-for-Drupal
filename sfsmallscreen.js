@@ -120,18 +120,18 @@
             return item.indexOf('sf-style-') > -1 ? item : '';
           }),
           // Creating the accordion.
-          accordion = $(refinedMenu).attr('id', accordionID)
+          accordion = $(refinedMenu).attr('id', accordionID);
           // Removing unnecessary classes.
-          .removeClass('sf-horizontal sf-vertical sf-navbar sf-shadow sf-js-enabled')
+          accordion.removeClass('sf-horizontal sf-vertical sf-navbar sf-shadow sf-js-enabled');
           // Adding necessary classes.
-          .addClass('sf-accordion sf-hidden')
+          accordion.addClass('sf-accordion sf-hidden');
           // Removing style attributes and any unnecessary class.
-          .children('li').removeAttr('style').removeClass('sfHover')
+          accordion.children('li').removeAttr('style').removeClass('sfHover');
           // Doing the same and making sure all the sub-menus are off-screen (hidden).
-          .end().find('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden')
+          accordion.find('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden');
           // Creating the accordion toggle switch.
-          .end().end().before('<div class="sf-accordion-toggle ' + styleClass + '"><a href="#" id="' + toggleID + '"><span>' + options.title + '</span></a></div>');
-
+          var toggle = '<div class="sf-accordion-toggle ' + styleClass + '"><a href="#" id="' + toggleID + '"><span>' + options.title + '</span></a></div>';
+          
           // Adding Expand\Collapse buttons if requested.
           if (options.accordionButton == 2){
             var parent = accordion.find('li.menuparent');
@@ -140,7 +140,7 @@
             }
           }
           // Inserting the according and hiding the original menu.
-          menu.before(accordion).hide();
+          menu.before(toggle).before(accordion).hide();
 
           var
           accordionElement = $('#' + accordionID),
@@ -295,12 +295,12 @@
         });
       }
       else if (mode == 'useragent_custom'){
-       if (options.useragent != ''){
-         var ua = RegExp(options.useragent, 'i');
-         if (navigator.userAgent.match(ua)){
-           convert(menu);
-         }
-       }
+        if (options.useragent != ''){
+          var ua = RegExp(options.useragent, 'i');
+          if (navigator.userAgent.match(ua)){
+            convert(menu);
+          }
+        }
       }
       else if (mode == 'useragent_predefined' && navigator.userAgent.match(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i)){
         convert(menu);
