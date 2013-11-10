@@ -28,7 +28,8 @@
       this.each(function(){
         var $u = $(this);
         $u.css('display','block');
-        var menuWidth = $u.width(),
+        var $mul = $u.closest('.sf-menu'),
+        menuWidth = $u.width(),
         menuParentWidth = $u.closest('li').outerWidth(true),
         menuParentLeft = $u.closest('li').offset().left,
         totalRight = $w.width() + _offset('x'),
@@ -41,13 +42,19 @@
         }
         else {
           if (menuRight > totalRight && menuParentLeft > menuWidth) {
-            $u.css({right:menuParentWidth + 'px',left:'auto'});
+            var level = $u.parents('ul').length;
+            if (($mul.hasClass('sf-horizontal') && level == 1) || ($mul.hasClass('sf-navbar') && level == 2)){
+              $u.css({right:0,left:'auto'});
+            }
+            else {
+              $u.css({right:menuParentWidth + 'px',left:'auto'});
+            }            
           }
         }
         var windowHeight = $w.height(),
         offsetTop = $u.offset().top,
-        menuParentShadow = ($u.closest('.sf-menu').hasClass('sf-shadow') && $u.css('padding-bottom').length > 0) ? parseInt($u.css('padding-bottom').slice(0,-2)) : 0,
-        menuParentHeight = ($u.closest('.sf-menu').hasClass('sf-vertical')) ? '-' + menuParentShadow : $u.parent().outerHeight(true) - menuParentShadow,
+        menuParentShadow = ($mul.hasClass('sf-shadow') && $u.css('padding-bottom').length > 0) ? parseInt($u.css('padding-bottom').slice(0,-2)) : 0,
+        menuParentHeight = ($mul.hasClass('sf-vertical')) ? '-' + menuParentShadow : $u.parent().outerHeight(true) - menuParentShadow,
         menuHeight = $u.height(),
         baseline = windowHeight + _offset('y');
         var expandUp = ((offsetTop + menuHeight > baseline) && (offsetTop > menuHeight));
