@@ -29,6 +29,7 @@
         var $u = $(this);
         $u.css('display','block');
         var $mul = $u.closest('.sf-menu'),
+        level = $u.parents('ul').length,
         menuWidth = $u.width(),
         menuParentWidth = $u.closest('li').outerWidth(true),
         menuParentLeft = $u.closest('li').offset().left,
@@ -37,18 +38,22 @@
         exactMenuWidth = (menuRight > (menuParentWidth + menuParentLeft)) ? menuWidth - (menuRight - (menuParentWidth + menuParentLeft)) : menuWidth;
         if ($u.parents('.sf-js-enabled').hasClass('rtl')) {
           if (menuParentLeft < exactMenuWidth) {
-            $u.css({left:menuParentWidth + 'px',right:'auto'});
+            if (($mul.hasClass('sf-horizontal') && level == 1) || ($mul.hasClass('sf-navbar') && level == 2)){
+              $u.css({left:0,right:'auto'});
+            }
+            else {
+              $u.css({left:menuParentWidth + 'px',right:'auto'});
+            }
           }
         }
         else {
           if (menuRight > totalRight && menuParentLeft > menuWidth) {
-            var level = $u.parents('ul').length;
             if (($mul.hasClass('sf-horizontal') && level == 1) || ($mul.hasClass('sf-navbar') && level == 2)){
               $u.css({right:0,left:'auto'});
             }
             else {
               $u.css({right:menuParentWidth + 'px',left:'auto'});
-            }            
+            }
           }
         }
         var windowHeight = $w.height(),
