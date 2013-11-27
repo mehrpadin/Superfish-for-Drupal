@@ -36,6 +36,9 @@
   margin: 5px 0 0 5px;
   padding: 0;
 }
+.sf-menu.sf-style-white.rtl span.sf-description {
+  margin: 5px 5px 0 0;
+}
 .sf-menu.sf-style-white li,
 .sf-menu.sf-style-white.sf-navbar {
   background: #f9f9f9;
@@ -104,6 +107,26 @@ div.sf-accordion-toggle.sf-style-white a.sf-expanded,
 .sf-menu.sf-style-white.sf-accordion li li li li li a,
 .sf-menu.sf-style-white.sf-accordion li li li li li span.nolink {
   padding-left: 5em;
+}
+.sf-menu.sf-style-white.rtl.sf-accordion li li a,
+.sf-menu.sf-style-white.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+.sf-menu.sf-style-white.rtl.sf-accordion li li li a,
+.sf-menu.sf-style-white.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+.sf-menu.sf-style-white.rtl.sf-accordion li li li li a,
+.sf-menu.sf-style-white.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+.sf-menu.sf-style-white.rtl.sf-accordion li li li li li a,
+.sf-menu.sf-style-white.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
 }
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-white ul.sf-megamenu li.sf-megamenu-wrapper ol li {

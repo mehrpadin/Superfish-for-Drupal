@@ -31,10 +31,13 @@
 .sf-menu.sf-style-pomegranate span.sf-description {
   color: #ffebee;
   display: block;
-  font-size: 0.8em;
-  line-height: 1.5em;
+  font-size: 0.833em;
+  line-height: 1.5;
   margin: 5px 0 0 5px;
   padding: 0;
+}
+.sf-menu.sf-style-pomegranate.rtl span.sf-description {
+  margin: 5px 5px 0 0;
 }
 .sf-menu.sf-style-pomegranate li,
 .sf-menu.sf-style-pomegranate.sf-navbar {
@@ -48,8 +51,6 @@
 }
 .sf-menu.sf-style-pomegranate li:hover,
 .sf-menu.sf-style-pomegranate li.sfHover,
-.sf-menu.sf-style-pomegranate li.active a,
-.sf-menu.sf-style-pomegranate li.active span.nolink,
 .sf-menu.sf-style-pomegranate a:focus,
 .sf-menu.sf-style-pomegranate a:hover,
 .sf-menu.sf-style-pomegranate a:active,
@@ -101,6 +102,26 @@ div.sf-accordion-toggle.sf-style-pomegranate a.sf-expanded,
 .sf-menu.sf-style-pomegranate.sf-accordion li li li li a,
 .sf-menu.sf-style-pomegranate.sf-accordion li li li li span.nolink {
   padding-left: 5em;
+}
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li a,
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li a,
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li li a,
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li li li a,
+.sf-menu.sf-style-pomegranate.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
 }
 .sf-menu.sf-style-pomegranate ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-pomegranate ul.sf-megamenu li.sf-megamenu-wrapper ol li {

@@ -31,10 +31,13 @@
 .sf-menu.sf-style-blue span.sf-description {
   color: #ffffff;
   display: block;
-  font-size: 0.8em;
-  line-height: 1.5em;
+  font-size: 0.833em;
+  line-height: 1.5;
   margin: 5px 0 0 5px;
   padding: 0;
+}
+.sf-menu.sf-style-blue.rtl span.sf-description {
+  margin: 5px 5px 0 0;
 }
 .sf-menu.sf-style-blue li,
 .sf-menu.sf-style-blue.sf-navbar {
@@ -99,6 +102,26 @@ div.sf-accordion-toggle.sf-style-blue a.sf-expanded,
 .sf-menu.sf-style-blue.sf-accordion li li li li a,
 .sf-menu.sf-style-blue.sf-accordion li li li li span.nolink {
   padding-left: 5em;
+}
+.sf-menu.sf-style-blue.rtl.sf-accordion li li a,
+.sf-menu.sf-style-blue.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li a,
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li li a,
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li li li a,
+.sf-menu.sf-style-blue.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
 }
 .sf-menu.sf-style-blue ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-blue ul.sf-megamenu li.sf-megamenu-wrapper ol li {

@@ -42,10 +42,13 @@
 .sf-menu.sf-style-STYLENAME span.sf-description {
   color: #0000ff;
   display: block;
-  font-size: 0.8em;
-  line-height: 1.5em;
+  font-size: 0.833em;
+  line-height: 1.5;
   margin: 5px 0 0 5px;
   padding: 0;
+}
+.sf-menu.sf-style-STYLENAME.rtl span.sf-description {
+  margin: 5px 5px 0 0;
 }
 .sf-menu.sf-style-STYLENAME li,
 .sf-menu.sf-style-STYLENAME.sf-navbar {
@@ -110,6 +113,26 @@ div.sf-accordion-toggle.sf-style-STYLENAME a.sf-expanded,
 .sf-menu.sf-style-STYLENAME.sf-accordion li li li li li span.nolink {
   padding-left: 5em;
 }
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li a,
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li a,
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li li a,
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li li li a,
+.sf-menu.sf-style-STYLENAME.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
+}
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper ol,
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper ol li {
   margin: 0;
@@ -118,6 +141,12 @@ div.sf-accordion-toggle.sf-style-STYLENAME a.sf-expanded,
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper a.menuparent,
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper span.nolink.menuparent {
   font-weight: bold;
+}
+.sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper {
+  background: #c0c0c0;
+}
+.sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper li {
+  background: transparent;
 }
 .sf-menu.sf-style-STYLENAME ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
   display: inline;
