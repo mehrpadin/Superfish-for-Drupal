@@ -1,0 +1,266 @@
+/*
+ * Sample SCSS for adding Superfish styles to themes.
+ *
+ * Instructions:
+ * 
+ * 1. Change the #block-superfish-1 (below) to the ID of your Superfish menu.
+ *
+ * 2. Add the SCSS to your theme, either as a separate SCSS file or as a part of the main SCSS file.
+ *
+ * 3. Note that by removing the .sf-style-none, the style will be applied to the menu regardless of
+ *    the Style selected in the block configuration.
+ *
+ */
+
+// You can add these variables to your _base.scss
+$superfish-1-color: #00f;
+$superfish-1-background-color-level-first: #f0f0f0;
+$superfish-1-background-color-level-second: #e0e0e0;
+$superfish-1-background-color-level-third: #d0d0d0;
+$superfish-1-background-color-level-fourth: #c0c0c0;
+
+#block-superfish-1 {
+	.sf-style-none {
+		float: left;
+		margin: 0;
+		padding: 0;
+		&.sf-navbar {
+			width: 100%;
+			background: $superfish-1-background-color-level-first;
+		}
+		ul {
+			padding-left: 0;
+			&.sf-megamenu li {
+				&.sf-megamenu-wrapper {
+					background: $superfish-1-background-color-level-fourth;
+					li {
+						background: transparent;
+					}
+				}
+			}
+		}
+		a {
+			color: $superfish-1-color;
+			padding: 0.75em 1em;
+			&.sf-with-ul {
+				padding-right: 2.25em;
+			}
+			&:focus {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+			}
+			&:hover {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+			}
+			&:active {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+			}
+		}
+		span {
+			&.nolink {
+				color: $superfish-1-color;
+				padding: 0.75em 1em;
+				&.sf-with-ul {
+					padding-right: 2.25em;
+				}
+				&:hover {
+					background: $superfish-1-background-color-level-fourth;
+					outline: 0;
+				}
+			}
+			&.sf-description {
+				color: $superfish-1-color;
+				display: block;
+				font-size: 0.833em;
+				line-height: 1.5;
+				margin: 5px 0 0 5px;
+				padding: 0;
+			}
+		}
+		&.rtl {
+			span {
+				&.sf-description {
+					margin: 5px 5px 0 0;
+				}
+				&.nolink.sf-with-ul {
+					padding-left: 2.25em;
+					padding-right: 1em;
+				}
+			}
+			a.sf-with-ul {
+				padding-left: 2.25em;
+				padding-right: 1em;
+			}
+		}
+		li {
+			background: $superfish-1-background-color-level-first;
+			li {
+				background: $superfish-1-background-color-level-second;
+				li {
+					background: $superfish-1-background-color-level-third;
+				}
+			}
+			&:hover {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+				> ul {
+					top: 40px;
+				}
+			}
+			&.sfHover {
+				background: $superfish-1-background-color-level-fourth;
+				outline: 0;
+				> ul {
+					top: 40px;
+				}
+			}
+		}
+		.sf-sub-indicator {
+			background-image: url('../images/dropdown-arrows.png');
+		}
+	}
+	div.sf-accordion-toggle {
+		&.sf-style-none a {
+			background: $superfish-1-background-color-level-first;
+			color: $superfish-1-color;
+			padding: 1em;
+			&.sf-expanded {
+				background-color: $superfish-1-background-color-level-fourth;
+				font-weight: bold;
+			}
+		}
+	}
+	.sf-menu.sf-style-none {
+		&.rtl {
+			&.sf-accordion li {
+				li {
+					a {
+						padding-left: auto;
+						padding-right: 2em;
+					}
+					li {
+						a {
+							padding-left: auto;
+							padding-right: 3em;
+						}
+						li {
+							a {
+								padding-left: auto;
+								padding-right: 4em;
+							}
+							li {
+								a {
+									padding-left: auto;
+									padding-right: 5em;
+								}
+								span.nolink {
+									padding-left: auto;
+									padding-right: 5em;
+								}
+							}
+							span.nolink {
+								padding-left: auto;
+								padding-right: 4em;
+							}
+						}
+						span.nolink {
+							padding-left: auto;
+							padding-right: 3em;
+						}
+					}
+					span.nolink {
+						padding-left: auto;
+						padding-right: 2em;
+					}
+				}
+			}
+			ul.sf-megamenu {
+				li.sf-megamenu-wrapper {
+					ol li {
+						&.sf-megamenu-column {
+							float: right;
+						}
+					}
+				}
+			}
+		}
+		&.sf-accordion li {
+			&.sf-expanded {
+				background-color: $superfish-1-background-color-level-fourth;
+				> {
+					a {
+						font-weight: bold;
+					}
+					span.nolink {
+						font-weight: bold;
+					}
+				}
+			}
+			li {
+				a {
+					padding-left: 2em;
+				}
+				li {
+					a {
+						padding-left: 3em;
+					}
+					li {
+						a {
+							padding-left: 4em;
+						}
+						li {
+							a {
+								padding-left: 5em;
+							}
+							span.nolink {
+								padding-left: 5em;
+							}
+						}
+						span.nolink {
+							padding-left: 4em;
+						}
+					}
+					span.nolink {
+						padding-left: 3em;
+					}
+				}
+				span.nolink {
+					padding-left: 2em;
+				}
+			}
+			a.sf-accordion-button {
+				font-weight: bold;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 499;
+			}
+		}
+		ul.sf-megamenu {
+			li.sf-megamenu-wrapper {
+				ol {
+					margin: 0;
+					padding: 0;
+					li {
+						margin: 0;
+						padding: 0;
+						&.sf-megamenu-column {
+							display: inline;
+							float: left;
+						}
+					}
+				}
+				a.menuparent {
+					font-weight: bold;
+				}
+				span.nolink {
+					&.menuparent {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
