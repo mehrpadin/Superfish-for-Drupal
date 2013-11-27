@@ -145,7 +145,7 @@
           var
           accordionElement = $('#' + accordionID),
           // Deciding what should be used as accordion buttons.
-          buttonElement = (options.accordionButton < 2) ? 'a.menuparent,span' : 'a.sf-accordion-button',
+          buttonElement = (options.accordionButton < 2) ? 'a.menuparent,span.nolink.menuparent' : 'a.sf-accordion-button',
           button = accordionElement.find(buttonElement);
 
           // Attaching a click event to the toggle switch.
@@ -185,10 +185,10 @@
               var parent = $(this).closest('li');
               // Creating and inserting Expand\Collapse buttons to the parent menu items,
               // of course only if not already happened.
-              if (options.accordionButton == 1 && parent.children('a.menuparent').length > 0 && parent.children('ul').children('li.sf-clone-parent').length == 0){
+              if (options.accordionButton == 1 && parent.children('a.menuparent,span.nolink.menuparent').length > 0 && parent.children('ul').children('li.sf-clone-parent').length == 0){
                 var
                 // Cloning the hyperlink of the parent menu item.
-                cloneLink = parent.children('a.menuparent').clone(),
+                cloneLink = parent.children('a.menuparent,span.nolink.menuparent').clone(),
                 // Wrapping the hyerplinks in <li>.
                 cloneLink = $('<li class="sf-clone-parent" />').html(cloneLink);
                 // Adding a helper class and attaching them to the sub-menus.

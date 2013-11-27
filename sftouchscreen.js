@@ -23,14 +23,14 @@
 
     function activate(menu){
       // Select hyperlinks from parent menu items.
-      menu.find('li:has(ul)').children('a').each(function(){
+      menu.find('li:has(ul)').children('a,span.nolink').each(function(){
         var item = $(this),
         parent = item.closest('li');
         if (options.behaviour == 2){
-          if (parent.children('a.menuparent').length > 0 && parent.children('ul').children('.sf-clone-parent').length == 0){
+          if (parent.children('a.menuparent,span.nolink.menuparent').length > 0 && parent.children('ul').children('.sf-clone-parent').length == 0){
             var
             // Cloning the hyperlink of the parent menu item.
-            cloneLink = parent.children('a.menuparent').clone(),
+            cloneLink = parent.children('a.menuparent,span.nolink.menuparent').clone(),
             // Wrapping the hyerplinks in <li>.
             cloneLink = $('<li class="sf-clone-parent" />').html(cloneLink);
             // Removing unnecessary stuff.

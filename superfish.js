@@ -50,12 +50,12 @@
       sf.o[s] = sf.op = o;
 
       $('li:has(ul)',this)[($.fn.hoverIntent && !o.disableHI) ? 'hoverIntent' : 'hover'](over,out).each(function() {
-        if (o.autoArrows) addArrow( $(this).children('a:first-child') );
+        if (o.autoArrows) addArrow( $(this).children('a:first-child, span.nolink:first-child') );
       })
       .not('.'+c.bcClass)
         .hideSuperfishUl();
 
-      var $a = $('a',this);
+      var $a = $('a, span.nolink',this);
       $a.each(function(i){
         var $li = $a.eq(i).parents('li');
         $a.eq(i).focus(function(){over.call($li);}).blur(function(){out.call($li);});

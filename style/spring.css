@@ -9,19 +9,23 @@
 .sf-menu.sf-style-spring ul {
   padding-left: 0;
 }
-.sf-menu.sf-style-spring a {
+.sf-menu.sf-style-spring a,
+.sf-menu.sf-style-spring span.nolink {
   border: 1px solid #ffffff;
   color: #37731f;
   padding: 0.75em 1em;
 }
-.sf-menu.sf-style-spring a.sf-with-ul {
+.sf-menu.sf-style-spring a.sf-with-ul,
+.sf-menu.sf-style-spring span.nolink.sf-with-ul {
   padding-right: 2.25em;
 }
-.sf-menu.sf-style-spring.rtl a.sf-with-ul {
+.sf-menu.sf-style-spring.rtl a.sf-with-ul,
+.sf-menu.sf-style-spring.rtl span.nolink.sf-with-ul {
   padding-left: 2.25em;
   padding-right: 1em;
 }
-.sf-menu.sf-style-spring.sf-navbar a {
+.sf-menu.sf-style-spring.sf-navbar a,
+.sf-menu.sf-style-spring.sf-navbar span.nolink {
   border: 0;
 }
 .sf-menu.sf-style-spring span.sf-description {
@@ -44,10 +48,10 @@
 }
 .sf-menu.sf-style-spring li:hover,
 .sf-menu.sf-style-spring li.sfHover,
-.sf-menu.sf-style-spring li.active a,
 .sf-menu.sf-style-spring a:focus,
 .sf-menu.sf-style-spring a:hover,
 .sf-menu.sf-style-spring a:active,
+.sf-menu.sf-style-spring span.nolink:hover,
 .sf-menu.sf-style-spring.sf-navbar li li {
   background: #bff6a9;
 }
@@ -74,7 +78,8 @@ div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
   background-color: #bff6a9;
 }
 div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
-.sf-menu.sf-style-spring.sf-accordion li.sf-expanded > a {
+.sf-menu.sf-style-spring.sf-accordion li.sf-expanded > a,
+.sf-menu.sf-style-spring.sf-accordion li.sf-expanded > span.nolink {
   font-weight: bold;
 }
 .sf-menu.sf-style-spring.sf-accordion li a.sf-accordion-button {
@@ -84,16 +89,20 @@ div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
   top: 0;
   z-index: 499;
 }
-.sf-menu.sf-style-spring.sf-accordion li li a {
+.sf-menu.sf-style-spring.sf-accordion li li a,
+.sf-menu.sf-style-spring.sf-accordion li li span.nolink {
   padding-left: 2em;
 }
-.sf-menu.sf-style-spring.sf-accordion li li li a {
+.sf-menu.sf-style-spring.sf-accordion li li li a,
+.sf-menu.sf-style-spring.sf-accordion li li li span.nolink {
   padding-left: 3em;
 }
-.sf-menu.sf-style-spring.sf-accordion li li li li a {
+.sf-menu.sf-style-spring.sf-accordion li li li li a,
+.sf-menu.sf-style-spring.sf-accordion li li li li span.nolink {
   padding-left: 4em;
 }
-.sf-menu.sf-style-spring.sf-accordion li li li li a {
+.sf-menu.sf-style-spring.sf-accordion li li li li a,
+.sf-menu.sf-style-spring.sf-accordion li li li li span.nolink {
   padding-left: 5em;
 }
 .sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper ol,
@@ -101,7 +110,8 @@ div.sf-accordion-toggle.sf-style-spring a.sf-expanded,
   margin: 0;
   padding: 0;
 }
-.sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper a.menuparent {
+.sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper a.menuparent,
+.sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper span.nolink.menuparent {
   font-weight: bold;
 }
 .sf-menu.sf-style-spring ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
