@@ -104,38 +104,7 @@ div.sf-accordion-toggle.sf-style-default a.sf-expanded,
 .sf-menu.sf-style-default ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
   display: inline;
   float: left;
-  width: 12em;
 }
 .sf-menu.sf-style-default.rtl ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
   float: right;
-}
-.sf-menu.sf-style-default li.sf-parent-children-1 ul.sf-megamenu {
-  width: 12em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-2 ul.sf-megamenu {
-  width: 24em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-3 ul.sf-megamenu {
-  width: 36em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-4 ul.sf-megamenu {
-  width: 48em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-5 ul.sf-megamenu {
-  width: 60em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-6 ul.sf-megamenu {
-  width: 72em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-7 ul.sf-megamenu {
-  width: 84em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-8 ul.sf-megamenu {
-  width: 96em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-9 ul.sf-megamenu {
-  width: 108em;
-}
-.sf-menu.sf-style-default li.sf-parent-children-10 ul.sf-megamenu {
-  width: 120em;
 }

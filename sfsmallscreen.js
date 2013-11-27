@@ -63,6 +63,7 @@
           }
         }
       }
+      refined.add(refined.find('*')).css({width:''});
       return refined;
     }
 
