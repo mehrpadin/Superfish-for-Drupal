@@ -1,5 +1,5 @@
 /*
- * sf-Smallscreen v1.1b - Provides small-screen compatibility for the jQuery Superfish plugin.
+ * sf-Smallscreen v1.2b - Provides small-screen compatibility for the jQuery Superfish plugin.
  *
  * Developer's note:
  * Built as a part of the Superfish project for Drupal (http://drupal.org/project/superfish)
@@ -62,6 +62,7 @@
             obj.eq(t).replaceWith(obj.eq(t).html());
           }
         }
+        refined.find('.sf-megamenu-column').removeClass('sf-megamenu-column');
       }
       refined.add(refined.find('*')).css({width:''});
       return refined;
