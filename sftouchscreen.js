@@ -17,6 +17,7 @@
     options = $.extend({
       mode: 'inactive',
       breakpoint: 768,
+      breakpointUnit: 'px',
       useragent: '',
       behaviour: 2
     }, options);
@@ -72,17 +73,18 @@
         activate(menu);
       }
       else if (mode == 'window_width'){
-        if ($(window).width() < options.breakpoint){
+        var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($("body").css("font-size"))) : options.breakpoint,
+        timer;
+        if (document.documentElement.clientWidth < breakpoint){
           activate(menu);
         }
-        var timer;
         $(window).resize(function(){
           clearTimeout(timer);
           timer = setTimeout(function(){
-            if ($(window).width() < options.breakpoint){
+            if (document.documentElement.clientWidth < breakpoint){
               activate(menu);
             }
-          }, 100);
+          }, 50);
         });
       }
       else if (mode == 'useragent_custom'){

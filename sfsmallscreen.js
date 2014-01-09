@@ -18,6 +18,7 @@
       mode: 'inactive',
       type: 'accordion',
       breakpoint: 768,
+      breakpointUnit: 'px',
       useragent: '',
       title: '',
       addSelected: false,
@@ -133,7 +134,7 @@
           accordion.find('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden');
           // Creating the accordion toggle switch.
           var toggle = '<div class="sf-accordion-toggle ' + styleClass + '"><a href="#" id="' + toggleID + '"><span>' + options.title + '</span></a></div>';
-          
+
           // Adding Expand\Collapse buttons if requested.
           if (options.accordionButton == 2){
             var parent = accordion.find('li.menuparent');
@@ -280,20 +281,21 @@
         convert(menu);
       }
       else if (mode == 'window_width'){
-        if ($(window).width() < options.breakpoint){
+        var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($("body").css("font-size"))) : options.breakpoint,
+        timer;
+        if (document.documentElement.clientWidth < breakpoint){
           convert(menu);
         }
-        var timer;
         $(window).resize(function(){
           clearTimeout(timer);
           timer = setTimeout(function(){
-            if ($(window).width() < options.breakpoint){
+            if (document.documentElement.clientWidth < breakpoint){
               convert(menu);
             }
             else {
               turnBack(menu);
             }
-          }, 100);
+          }, 50);
         });
       }
       else if (mode == 'useragent_custom'){
