@@ -281,15 +281,17 @@
         convert(menu);
       }
       else if (mode == 'window_width'){
-        var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($("body").css("font-size"))) : options.breakpoint,
+        var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($('body').css('font-size'))) : options.breakpoint,
+        windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
         timer;
-        if (document.documentElement.clientWidth < breakpoint){
+        if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
           convert(menu);
         }
         $(window).resize(function(){
           clearTimeout(timer);
           timer = setTimeout(function(){
-            if (document.documentElement.clientWidth < breakpoint){
+            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
               convert(menu);
             }
             else {
