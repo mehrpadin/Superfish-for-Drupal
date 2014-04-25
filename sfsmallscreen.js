@@ -244,7 +244,10 @@
           .html('<option>' + options.title + '</option>' + newMenu)
           // Attaching an event then.
           .change(function(){
-            window.location = selectList.val();
+            // Except for the first option that is the menu title and not a real menu item.
+            if ($('option:selected', this).index()){
+              window.location = selectList.val();
+            }
           });
           // Applying the addSelected option to it.
           if (options.addSelected){
