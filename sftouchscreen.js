@@ -19,14 +19,19 @@
       breakpoint: 768,
       breakpointUnit: 'px',
       useragent: '',
-      behaviour: 2
+      behaviour: 2,
+      disableHover: false
     }, options);
 
     function activate(menu){
+      var eventHandler = (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch)) ? ['click touchstart','mouseup touchend'] : ['click','mouseup'];
       // Select hyperlinks from parent menu items.
       menu.find('li:has(ul)').children('a,span.nolink').each(function(){
         var item = $(this),
         parent = item.closest('li');
+        if (options.disableHover){
+          parent.unbind('mouseenter mouseleave');
+        }
         if (options.behaviour == 2){
           if (parent.children('a.menuparent,span.nolink.menuparent').length > 0 && parent.children('ul').children('.sf-clone-parent').length == 0){
             var
@@ -41,26 +46,34 @@
           }
         }
         // No .toggle() here as it's not possible to reset it.
-        item.click(function(event){
-          // Already clicked? proceed to the URL.
+        item.bind(eventHandler[0], function(event){
+          // Already clicked?
           if (item.hasClass('sf-clicked')){
+            // Depending on the preferred behaviour, either proceed to the URL.
             if (options.behaviour == 0){
               window.location = item.attr('href');
             }
+            // or collapse the sub-menu.
             else if (options.behaviour == 1 || options.behaviour == 2){
               event.preventDefault();
-              item.removeClass('sf-clicked').parent('li').hideSuperfishUl();
+              item.removeClass('sf-clicked');
+              parent.hideSuperfishUl().find('a,span.nolink').removeClass('sf-clicked');
             }
           }
-          // Prevent it otherwise.
+          // Prevent the default action otherwise.
           else {
             event.preventDefault();
-            item.addClass('sf-clicked').parent('li').showSuperfishUl();
+            item.addClass('sf-clicked');
+            parent.showSuperfishUl().siblings('li:has(ul)').hideSuperfishUl().find('.sf-clicked').removeClass('sf-clicked');
           }
-        }).closest('li').mouseleave(function(){
-          // Reset everything.
-          item.removeClass('sf-clicked');
         });
+      });
+
+      $(document).bind(eventHandler[1], function(event){
+        if (!menu.is(event.target) && menu.has(event.target).length === 0){
+          menu.find('.sf-clicked').removeClass('sf-clicked');
+          menu.find('li:has(ul)').hideSuperfishUl();
+        }
       });
     }
     // Return original object to support chaining.
