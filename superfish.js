@@ -63,11 +63,15 @@
       o.onInit.call(this);
 
     }).each(function() {
-      var menuClasses = [c.menuClass];
+      var menuClasses = [c.menuClass],
+      addShadow = true;
       if ($.browser !== undefined){
-        if (sf.op.dropShadows && !($.browser.msie && $.browser.version < 7)) {
-          menuClasses.push(c.shadowClass);
+        if ($.browser.msie && $.browser.version < 7){
+          addShadow = false;
         }
+      }
+      if (sf.op.dropShadows && addShadow){
+        menuClasses.push(c.shadowClass);
       }
       $(this).addClass(menuClasses.join(' '));
     });
