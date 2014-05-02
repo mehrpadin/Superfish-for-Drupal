@@ -70,7 +70,7 @@
       });
 
       $(document).bind(eventHandler[1], function(event){
-        if (!menu.is(event.target) && menu.has(event.target).length === 0){
+        if (menu.not(event.target) && menu.has(event.target).length === 0){
           menu.find('.sf-clicked').removeClass('sf-clicked');
           menu.find('li:has(ul)').hideSuperfishUl();
         }
