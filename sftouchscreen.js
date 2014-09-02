@@ -89,14 +89,14 @@
         var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($('body').css('font-size'))) : options.breakpoint,
         windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
         timer;
-        if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
+        if ((typeof Modernizr.mq === 'function' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr.mq === 'undefined' && windowWidth < breakpoint)){
           activate(menu);
         }
         $(window).resize(function(){
           clearTimeout(timer);
           timer = setTimeout(function(){
             var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
+            if ((typeof Modernizr.mq === 'function' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr.mq === 'undefined' && windowWidth < breakpoint)){
               activate(menu);
             }
           }, 50);
