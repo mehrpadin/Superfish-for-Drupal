@@ -47,8 +47,18 @@
         }
         // No .toggle() here as it's not possible to reset it.
         item.bind(eventHandler[0], function(event){
+          if (options.behaviour == 3){
+            if ($(event.target).is('.sf-sub-indicator')) {
+              event.preventDefault();
+              item.addClass('sf-clicked');
+              parent.showSuperfishUl().siblings('li:has(ul)').hideSuperfishUl().find('.sf-clicked').removeClass('sf-clicked');
+            }
+            else {
+              window.location = item.attr('href');
+            }
+          }
           // Already clicked?
-          if (item.hasClass('sf-clicked')){
+          else if (item.hasClass('sf-clicked')){
             // Depending on the preferred behaviour, either proceed to the URL.
             if (options.behaviour == 0){
               window.location = item.attr('href');
