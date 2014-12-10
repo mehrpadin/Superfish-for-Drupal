@@ -89,7 +89,7 @@
             classes += ' active';
           }
           // <option> has to be disabled if the item is not a link.
-          disable = item.is('span') ? ' disabled="disabled"' : '',
+          disable = item.is('span') || item.attr('href')=='#' ? ' disabled="disabled"' : '',
           // Crystal clear.
           subIndicator = 1 < level ? Array(level).join('-') + ' ' : '';
           // Preparing the <option> element.
