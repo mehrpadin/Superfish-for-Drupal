@@ -31,10 +31,10 @@
         $$ = $$.children('li').children('ul');
       }
       // cache all ul elements
-      $ULs = $$.find('ul');
+      var $ULs = $$.find('ul'),
       // get the font size of menu.
       // .css('fontSize') returns various results cross-browser, so measure an em dash instead
-      var fontsize = $('<li id="menu-fontsize">&#8212;</li>'),
+      fontsize = $('<li id="menu-fontsize">&#8212;</li>'),
       size = fontsize.attr('style','padding:0;position:absolute;top:-99999em;width:auto;')
       .appendTo($$)[0].clientWidth; //clientWidth is faster than width()
       // remove em dash
@@ -48,10 +48,10 @@
         // If a multi-column sub-menu, and only if correctly configured.
         if (o.megamenu && $ul.hasClass('sf-megamenu') && $ul.find('.sf-megamenu-column').length > 0){
           // Look through each column.
-          $column = $ul.find('div.sf-megamenu-column > ol');
+          var $column = $ul.find('div.sf-megamenu-column > ol'),
           // Overall width.
-          var mwWidth = 0;
-          for (d = 0; d < $column.length; d++){
+          mwWidth = 0;
+          for (var d = 0; d < $column.length; d++){
             resize($column.eq(d));
             // New column width, in pixels.
             var colWidth = $column.width();
@@ -68,7 +68,7 @@
         else {
           resize($ul);
         }
-      }  
+      }
     }
     function resize($ul){
       var
@@ -102,7 +102,7 @@
         var offsetDirection = $childUl.css('left') !== undefined ? 'left' : 'right';
         $childUl.css(offsetDirection,'100%');
       }
-    }    
+    }
     return this;
   };
   // expose defaults
