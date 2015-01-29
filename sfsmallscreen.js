@@ -287,14 +287,20 @@
         var breakpoint = (options.breakpointUnit == 'em') ? (options.breakpoint * parseFloat($('body').css('font-size'))) : options.breakpoint,
         windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
         timer;
-        if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
+        if ((typeof Modernizr === 'undefined' || typeof Modernizr.mq !== 'function') && windowWidth < breakpoint){
+          convert(menu);
+        }
+        else if (typeof Modernizr !== 'undefined' && typeof Modernizr.mq === 'function' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) {
           convert(menu);
         }
         $(window).resize(function(){
           clearTimeout(timer);
           timer = setTimeout(function(){
             var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            if ((typeof Modernizr != 'undefined' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) || (typeof Modernizr === 'undefined' && windowWidth < breakpoint)){
+            if ((typeof Modernizr === 'undefined' || typeof Modernizr.mq !== 'function') && windowWidth < breakpoint){
+              convert(menu);
+            }
+            else if (typeof Modernizr !== 'undefined' && typeof Modernizr.mq === 'function' && Modernizr.mq('(max-width:' + (breakpoint - 1) + 'px)')) {
               convert(menu);
             }
             else {
