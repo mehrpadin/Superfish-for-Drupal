@@ -239,7 +239,7 @@
           // Creating the <option> elements.
           var newMenu = toSelect(refinedMenu, 1),
           // Creating the <select> element and assigning an ID and class name.
-          selectList = $('<select class="' + classes + '" id="' + menuID + '-select"/>')
+          selectList = $('<select' + classes + ' id="' + menuID + '-select"/>')
           // Attaching the title and the items to the <select> element.
           .html('<option>' + options.title + '</option>' + newMenu)
           // Attaching an event then.
