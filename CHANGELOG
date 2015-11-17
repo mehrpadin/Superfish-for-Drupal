@@ -1,3 +1,12 @@
+November, 2015
+----------
+- Retired bgiFrame plugin
+- Retired sfAutomaticWidth in favour of flex-box
+- Removed all the PNG images for shadow and parent menu arrows in favour of CSS3
+- jQuery hoverIntent upgraded to v1.8.0 which requires jQuery 1.9.1 or higher.
+- Mixed small-screen, navbar, and vertical CSS files.
+- CSS has been further optimized.
+
 November, 2013
 ----------
 - Better compatibility with linkless menu items.

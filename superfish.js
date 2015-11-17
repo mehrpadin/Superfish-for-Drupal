@@ -65,14 +65,8 @@
       o.onInit.call(this);
 
     }).each(function() {
-      var menuClasses = [c.menuClass],
-      addShadow = true;
-      if ($.browser !== undefined){
-        if ($.browser.msie && $.browser.version < 7){
-          addShadow = false;
-        }
-      }
-      if (sf.op.dropShadows && addShadow){
+      var menuClasses = [c.menuClass];
+      if (sf.op.dropShadows){
         menuClasses.push(c.shadowClass);
       }
       $(this).addClass(menuClasses.join(' '));
@@ -82,14 +76,7 @@
   var sf = $.fn.superfish;
   sf.o = [];
   sf.op = {};
-  sf.IE7fix = function(){
-    var o = sf.op;
-    if ($.browser !== undefined){
-      if ($.browser.msie && $.browser.version > 6 && o.dropShadows && o.animation.opacity != undefined) {
-        this.toggleClass(sf.c.shadowClass+'-off');
-      }
-    }
-  };
+
   sf.c = {
     bcClass: 'sf-breadcrumb',
     menuClass: 'sf-js-enabled',
@@ -127,9 +114,8 @@
         sh = sf.c.shadowClass+'-off',
         $ul = this.addClass(o.hoverClass)
           .children('ul.sf-hidden').hide().removeClass('sf-hidden');
-      sf.IE7fix.call($ul);
       o.onBeforeShow.call($ul);
-      $ul.animate(o.animation,o.speed,function(){ sf.IE7fix.call($ul); o.onShow.call($ul); });
+      $ul.animate(o.animation,o.speed,function(){ o.onShow.call($ul); });
       return this;
     }
   });

@@ -1,0 +1,144 @@
+ul.sf-menu.sf-style-black {
+  float: left;
+  margin-bottom: 1em;
+  padding: 0;
+}
+ul.sf-menu.sf-style-black.sf-navbar {
+  width: 100%;
+}
+ul.sf-menu.sf-style-black ul {
+  margin: 0;
+  padding: 0;
+}
+ul.sf-menu.sf-style-black a,
+ul.sf-menu.sf-style-black a:visited,
+ul.sf-menu.sf-style-black span.nolink {
+  border: 0 none;
+  color: #eeeeee;
+  padding: 0.75em 1em;
+}
+ul.sf-menu.sf-style-black a.sf-with-ul,
+ul.sf-menu.sf-style-black span.nolink.sf-with-ul {
+  padding-right: 2.25em;
+}
+ul.sf-menu.sf-style-black.rtl a.sf-with-ul,
+ul.sf-menu.sf-style-black.rtl span.nolink.sf-with-ul {
+  padding-left: 2.25em;
+  padding-right: 1em;
+}
+ul.sf-menu.sf-style-black span.sf-description {
+  color: #dddddd;
+  display: block;
+  font-size: smaller;
+  line-height: 1.5;
+  margin: 0.25em 0 0 0;
+  padding: 0;
+}
+ul.sf-menu.sf-style-black li,
+ul.sf-menu.sf-style-black.sf-navbar {
+  background: #000000;
+}
+ul.sf-menu.sf-style-black li li,
+ul.sf-menu.sf-style-black.sf-navbar > li > ul {
+  background: #151515;
+}
+ul.sf-menu.sf-style-black li li li {
+  background: #252525;
+}
+ul.sf-menu.sf-style-black li:hover,
+ul.sf-menu.sf-style-black li.sfHover,
+ul.sf-menu.sf-style-black a:focus,
+ul.sf-menu.sf-style-black a:hover,
+ul.sf-menu.sf-style-black span.nolink:hover {
+  background: #353535;
+  color: #ffffff;
+  outline: 0;
+}
+.sf-menu.sf-style-black.sf-navbar li ul {
+  background: #353535;
+}
+.sf-menu.sf-style-black.sf-navbar li ul li ul {
+  background: transparent;
+}
+div.sf-accordion-toggle.sf-style-black a {
+  background: #151515;
+  border: 1px solid #000;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  padding: 1em 3em 1em 1em;
+  position: relative;
+}
+div.sf-accordion-toggle.sf-style-black  > a:after {
+  content: "≡";
+  font-size: 2em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  speak: none;
+}
+div.sf-accordion-toggle.sf-style-black a.sf-expanded,
+ul.sf-menu.sf-style-black.sf-accordion li.sf-expanded {
+  background: #252525;
+}
+div.sf-accordion-toggle.sf-style-black a.sf-expanded,
+ul.sf-menu.sf-style-black.sf-accordion li.sf-expanded > a,
+ul.sf-menu.sf-style-black.sf-accordion li.sf-expanded > span.nolink {
+  font-weight: bold;
+}
+ul.sf-menu.sf-style-black.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+ul.sf-menu.sf-style-black.sf-accordion li li a,
+ul.sf-menu.sf-style-black.sf-accordion li li span.nolink {
+  padding-left: 2em;
+}
+ul.sf-menu.sf-style-black.sf-accordion li li li a,
+ul.sf-menu.sf-style-black.sf-accordion li li li span.nolink {
+  padding-left: 3em;
+}
+ul.sf-menu.sf-style-black.sf-accordion li li li li a,
+ul.sf-menu.sf-style-black.sf-accordion li li li li span.nolink {
+  padding-left: 4em;
+}
+ul.sf-menu.sf-style-black.sf-accordion li li li li li a,
+ul.sf-menu.sf-style-black.sf-accordion li li li li li span.nolink {
+  padding-left: 5em;
+}
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li a,
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li a,
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li li a,
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li li li a,
+ul.sf-menu.sf-style-black.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
+}
+ul.sf-menu.sf-style-black li.sf-multicolumn-wrapper ol,
+ul.sf-menu.sf-style-black li.sf-multicolumn-wrapper ol li {
+  margin: 0;
+  padding: 0;
+}
+ul.sf-menu.sf-style-black li.sf-multicolumn-wrapper a.menuparent,
+ul.sf-menu.sf-style-black li.sf-multicolumn-wrapper span.nolink.menuparent {
+  font-weight: bold;
+}

@@ -46,9 +46,9 @@
         // cache this ul
         $ul = $ULs.eq(b);
         // If a multi-column sub-menu, and only if correctly configured.
-        if (o.megamenu && $ul.hasClass('sf-megamenu') && $ul.find('.sf-megamenu-column').length > 0){
+        if (o.multicolumn && $ul.hasClass('sf-multicolumn') && $ul.find('.sf-multicolumn-column').length > 0){
           // Look through each column.
-          var $column = $ul.find('div.sf-megamenu-column > ol'),
+          var $column = $ul.find('div.sf-multicolumn-column > ol'),
           // Overall width.
           mwWidth = 0;
           for (var d = 0; d < $column.length; d++){
@@ -58,12 +58,12 @@
             // Just a trick to convert em unit to px.
             $column.css({width:colWidth})
             // Making column parents the same size.
-            .parents('.sf-megamenu-column').css({width:colWidth});
+            .parents('.sf-multicolumn-column').css({width:colWidth});
             // Overall width.
             mwWidth += parseInt(colWidth);
           }
           // Resizing the columns container too.
-          $ul.add($ul.find('li.sf-megamenu-wrapper, li.sf-megamenu-wrapper > ol')).css({width:mwWidth});
+          $ul.add($ul.find('li.sf-multicolumn-wrapper, li.sf-multicolumn-wrapper > ol')).css({width:mwWidth});
         }
         else {
           resize($ul);
@@ -107,7 +107,7 @@
   };
   // expose defaults
   $.fn.supersubs.defaults = {
-    megamenu: true, // define width for multi-column sub-menus and their columns.
+    multicolumn: true, // define width for multi-column sub-menus and their columns.
     minWidth: 12, // requires em unit.
     maxWidth: 27, // requires em unit.
     extraWidth: 1 // extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values

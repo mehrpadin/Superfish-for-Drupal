@@ -1,5 +1,5 @@
 /*
- * sf-Smallscreen v1.2b - Provides small-screen compatibility for the jQuery Superfish plugin.
+ * sf-Smallscreen v1.3b - Provides small-screen compatibility for the jQuery Superfish plugin.
  *
  * Developer's note:
  * Built as a part of the Superfish project for Drupal (http://drupal.org/project/superfish)
@@ -38,38 +38,40 @@
       var
       refined = menu.clone(),
       // Things that should not be in the small-screen menus.
-      rm = refined.find('span.sf-sub-indicator, span.sf-description'),
+      rm = refined.find('span.sf-sub-indicator'),
       // This is a helper class for those who need to add extra markup that shouldn't exist
       // in the small-screen versions.
       rh = refined.find('.sf-smallscreen-remove'),
       // Mega-menus has to be removed too.
-      mm = refined.find('ul.sf-megamenu');
+      mm = refined.find('ul.sf-multicolumn');
       for (var a = 0; a < rh.length; a++){
         rh.eq(a).replaceWith(rh.eq(a).html());
       }
-      for (var b = 0; b < rm.length; b++){
-        rm.eq(b).remove();
+      if (options.accordionButton == 2 || options.type == 'select'){
+        for (var b = 0; b < rm.length; b++){
+          rm.eq(b).remove();
+        }
       }
       if (mm.length > 0){
-        mm.removeClass('sf-megamenu');
-        var ol = refined.find('div.sf-megamenu-column > ol');
+        mm.removeClass('sf-multicolumn');
+        var ol = refined.find('div.sf-multicolumn-column > ol');
         for (var o = 0; o < ol.length; o++){
           ol.eq(o).replaceWith('<ul>' + ol.eq(o).html() + '</ul>');
         }
-        var elements = ['div.sf-megamenu-column','.sf-megamenu-wrapper > ol','li.sf-megamenu-wrapper'];
+        var elements = ['div.sf-multicolumn-column','.sf-multicolumn-wrapper > ol','li.sf-multicolumn-wrapper'];
         for (var i = 0; i < elements.length; i++){
           obj = refined.find(elements[i]);
           for (var t = 0; t < obj.length; t++){
             obj.eq(t).replaceWith(obj.eq(t).html());
           }
         }
-        refined.find('.sf-megamenu-column').removeClass('sf-megamenu-column');
+        refined.find('.sf-multicolumn-column').removeClass('sf-multicolumn-column');
       }
       refined.add(refined.find('*')).css({width:''});
       return refined;
     }
 
-    // Creating <option> elements out of the menu.
+    // Creating <option> elements out of t
     function toSelect(menu, level){
       var
       items = '',
@@ -129,7 +131,9 @@
           // Adding necessary classes.
           accordion.addClass('sf-accordion sf-hidden');
           // Removing style attributes and any unnecessary class.
-          accordion.children('li').removeAttr('style').removeClass('sfHover');
+          accordion.find('li').each(function(){
+            $(this).removeAttr('style').removeClass('sfHover').attr('id', $(this).attr('id') + '-accordion');
+          });
           // Doing the same and making sure all the sub-menus are off-screen (hidden).
           accordion.find('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden');
           // Creating the accordion toggle switch.
@@ -137,6 +141,7 @@
 
           // Adding Expand\Collapse buttons if requested.
           if (options.accordionButton == 2){
+            accordion.addClass('sf-accordion-with-buttons');
             var parent = accordion.find('li.menuparent');
             for (var i = 0; i < parent.length; i++){
               parent.eq(i).prepend('<a href="#" class="sf-accordion-button">' + options.expandText + '</a>');
@@ -152,7 +157,7 @@
           button = accordionElement.find(buttonElement);
 
           // Attaching a click event to the toggle switch.
-          $('#' + toggleID).bind('click', function(e){
+          $('#' + toggleID).on('click', function(e){
             // Preventing the click.
             e.preventDefault();
             // Adding the sf-expanded class.
@@ -163,7 +168,7 @@
               // Hiding its expanded sub-menus and then the accordion itself as well.
               accordionElement.add(accordionElement.find('li.sf-expanded')).removeClass('sf-expanded')
               .end().find('ul').hide()
-              // This is a bit tricky, it's the same trick that has been in use in the main plugin for sometime.
+              // This is a bit tricky, it's the same trick that has been in use in the main plugin for some time.
               // Basically we'll add a class that keeps the sub-menu off-screen and still visible,
               // and make it invisible and removing the class one moment before showing or hiding it.
               // This helps screen reader software access all the menu items.
@@ -180,7 +185,7 @@
           });
 
           // Attaching a click event to the buttons.
-          button.bind('click', function(e){
+          button.on('click', function(e){
             // Making sure the buttons does not exist already.
             if ($(this).closest('li').children('ul').length > 0){
               e.preventDefault();
@@ -191,7 +196,9 @@
               if (options.accordionButton == 1 && parent.children('a.menuparent,span.nolink.menuparent').length > 0 && parent.children('ul').children('li.sf-clone-parent').length == 0){
                 var
                 // Cloning the hyperlink of the parent menu item.
-                cloneLink = parent.children('a.menuparent,span.nolink.menuparent').clone(),
+                cloneLink = parent.children('a.menuparent,span.nolink.menuparent').clone();
+                // Removing unnecessary classes and element(s).
+                cloneLink.removeClass('menuparent sf-with-ul').children('.sf-sub-indicator').remove();
                 // Wrapping the hyerplinks in <li>.
                 cloneLink = $('<li class="sf-clone-parent" />').html(cloneLink);
                 // Adding a helper class and attaching them to the sub-menus.
