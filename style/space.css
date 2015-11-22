@@ -88,7 +88,7 @@ div.sf-accordion-toggle.sf-style-space a.sf-expanded,
   padding-left: 2em;
 }
 .sf-menu.sf-style-space.sf-accordion li li li a,
-.sf-menu.sf-style-space.sf-accordion li li li span.nolink
+.sf-menu.sf-style-space.sf-accordion li li li span.nolink {
   padding-left: 3em;
 }
 .sf-menu.sf-style-space.sf-accordion li li li li a,
