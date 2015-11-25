@@ -1,0 +1,20 @@
+ul.sf-menu.sf-accordion {
+  display: none;
+  position: absolute;
+}
+ul.sf-menu.sf-accordion,
+ul.sf-menu.sf-accordion ul,
+ul.sf-menu.sf-accordion li {
+  float: left;
+  width: 100%;
+}
+ul.sf-menu.sf-accordion ul {
+  margin: 0;
+  padding: 0;
+}
+ul.sf-menu.sf-accordion.sf-expanded,
+ul.sf-menu.sf-accordion li.sf-expanded > ul {
+  left: auto !important;
+  position: relative;
+  top: auto !important;
+}

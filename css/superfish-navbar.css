@@ -29,27 +29,35 @@
 .sf-navbar ul .sf-sub-indicator {
   background-position: -10px -100px;
 }
-.sf-navbar ul a > .sf-sub-indicator {
+.sf-navbar ul a > .sf-sub-indicator,
+.sf-navbar ul span.nolink > .sf-sub-indicator {
   background-position: 0 -100px;
 }
 .sf-navbar ul a:focus > .sf-sub-indicator,
 .sf-navbar ul a:hover > .sf-sub-indicator,
 .sf-navbar ul a:active > .sf-sub-indicator,
 .sf-navbar ul li:hover > a > .sf-sub-indicator,
-.sf-navbar ul li.sfHover > a > .sf-sub-indicator {
+.sf-navbar ul li.sfHover > a > .sf-sub-indicator,
+.sf-navbar ul span.nolink:hover > .sf-sub-indicator,
+.sf-navbar ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-navbar ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: -10px -100px;
 }
 .sf-navbar ul ul .sf-sub-indicator {
   background-position: -10px 0;
 }
-.sf-navbar ul ul a > .sf-sub-indicator {
+.sf-navbar ul ul a > .sf-sub-indicator,
+.sf-navbar ul ul span.nolink > .sf-sub-indicator {
   background-position: 0 0;
 }
 .sf-navbar ul ul a:focus > .sf-sub-indicator,
 .sf-navbar ul ul a:hover > .sf-sub-indicator,
 .sf-navbar ul ul a:active > .sf-sub-indicator,
 .sf-navbar ul ul li:hover > a > .sf-sub-indicator,
-.sf-navbar ul ul li.sfHover > a > .sf-sub-indicator {
+.sf-navbar ul ul li.sfHover > a > .sf-sub-indicator,
+.sf-navbar ul ul span.nolink > .sf-sub-indicator,
+.sf-navbar ul ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-navbar ul ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: -10px 0;
 }
 .sf-navbar > li > ul {

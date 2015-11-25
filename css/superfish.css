@@ -22,7 +22,8 @@
   position: relative;
   z-index: 498;
 }
-.sf-menu a {
+.sf-menu a,
+.sf-menu span.nolink {
   display: block;
   position: relative;
 }
@@ -42,11 +43,17 @@
   left: 12em;
   top: 0;
 }
+.sf-menu.menu,
+.sf-menu.menu ul,
+.sf-menu.menu li {
+  margin: 0;
+}
 .sf-hidden {
-  left: 0 !important;
+  left: -99999em !important;
   top: -99999em !important;
 }
-.sf-menu a.sf-with-ul {
+.sf-menu a.sf-with-ul,
+.sf-menu span.nolink.sf-with-ul {
   min-width: 1px;
 }
 .sf-sub-indicator {
@@ -60,7 +67,8 @@
   top: 1.05em;
   width: 10px;
 }
-a > .sf-sub-indicator {
+a > .sf-sub-indicator,
+span.nolink > .sf-sub-indicator {
   top: 0.8em;
   background-position: 0 -100px;
 }
@@ -68,20 +76,27 @@ a:focus > .sf-sub-indicator,
 a:hover > .sf-sub-indicator,
 a:active > .sf-sub-indicator,
 li:hover > a > .sf-sub-indicator,
-li.sfHover > a > .sf-sub-indicator {
+li.sfHover > a > .sf-sub-indicator,
+span.nolink:hover > .sf-sub-indicator,
+li:hover > span.nolink > .sf-sub-indicator,
+li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: -10px -100px;
 }
 .sf-menu ul .sf-sub-indicator {
   background-position: -10px 0;
 }
-.sf-menu ul a > .sf-sub-indicator {
+.sf-menu ul a > .sf-sub-indicator,
+.sf-menu ul span.nolink > .sf-sub-indicator {
   background-position: 0 0;
 }
 .sf-menu ul a:focus > .sf-sub-indicator,
 .sf-menu ul a:hover > .sf-sub-indicator,
 .sf-menu ul a:active > .sf-sub-indicator,
 .sf-menu ul li:hover > a > .sf-sub-indicator,
-.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+.sf-menu ul li.sfHover > a > .sf-sub-indicator,
+.sf-menu ul span.nolink:hover > .sf-sub-indicator,
+.sf-menu ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-menu ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: -10px 0;
 }
 .sf-menu.sf-horizontal.sf-shadow ul,
@@ -122,7 +137,8 @@ li.sfHover > a > .sf-sub-indicator {
   right: auto;
   background: url('../images/arrows-ffffff-rtl.png') no-repeat -10px -100px;
 }
-.sf-menu.rtl a > .sf-sub-indicator {
+.sf-menu.rtl a > .sf-sub-indicator,
+.sf-menu.rtl span.nolink > .sf-sub-indicator {
   top: 0.8em;
   background-position: -10px -100px;
 }
@@ -130,21 +146,33 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-menu.rtl a:hover > .sf-sub-indicator,
 .sf-menu.rtl a:active > .sf-sub-indicator,
 .sf-menu.rtl li:hover > a > .sf-sub-indicator,
-.sf-menu.rtl li.sfHover > a > .sf-sub-indicator {
+.sf-menu.rtl li.sfHover > a > .sf-sub-indicator,
+.sf-menu.rtl span.nolink:hover > .sf-sub-indicator,
+.sf-menu.rtl li:hover > span.nolink > .sf-sub-indicator,
+.sf-menu.rtl li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: 0 -100px;
 }
 .sf-menu.rtl ul .sf-sub-indicator {
   background-position: 0 0;
 }
-.sf-menu.rtl ul a > .sf-sub-indicator {
+.sf-menu.rtl ul a > .sf-sub-indicator,
+.sf-menu.rtl ul span.nolink > .sf-sub-indicator {
   background-position: -10px 0;
 }
 .sf-menu.rtl ul a:focus > .sf-sub-indicator,
 .sf-menu.rtl ul a:hover > .sf-sub-indicator,
 .sf-menu.rtl ul a:active > .sf-sub-indicator,
 .sf-menu.rtl ul li:hover > a > .sf-sub-indicator,
-.sf-menu.rtl ul li.sfHover > a > .sf-sub-indicator {
+.sf-menu.rtl ul li.sfHover > a > .sf-sub-indicator,
+.sf-menu.rtl ul span.nolink:hover > .sf-sub-indicator,
+.sf-menu.rtl ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-menu.rtl ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: 0 0;
+}
+.sf-menu.rtl .sf-hidden,
+.sf-menu.rtl.sf-hidden {
+  left: auto !important;
+  right: -99999em !important;
 }
 .sf-menu.rtl.sf-horizontal.sf-shadow ul,
 .sf-menu.rtl.sf-vertical.sf-shadow ul,
@@ -169,14 +197,18 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-vertical.rtl .sf-sub-indicator {
   background-position: -10px 0;
 }
-.sf-vertical.rtl a > .sf-sub-indicator {
+.sf-vertical.rtl a > .sf-sub-indicator,
+.sf-vertical.rtl span.nolink > .sf-sub-indicator {
   background-position: 0 0;
 }
 .sf-vertical.rtl a:focus > .sf-sub-indicator,
 .sf-vertical.rtl a:hover > .sf-sub-indicator,
 .sf-vertical.rtl a:active > .sf-sub-indicator,
 .sf-vertical.rtl li:hover > a > .sf-sub-indicator,
-.sf-vertical.rtl li.sfHover > a > .sf-sub-indicator {
+.sf-vertical.rtl li.sfHover > a > .sf-sub-indicator,
+.sf-vertical.rtl span.nolink:hover > .sf-sub-indicator,
+.sf-vertical.rtl li:hover > span.nolink > .sf-sub-indicator,
+.sf-vertical.rtl li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: -10px 0;
 }
 .sf-navbar.rtl li li {
@@ -192,20 +224,27 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-navbar.rtl ul a:hover > .sf-sub-indicator,
 .sf-navbar.rtl ul a:active > .sf-sub-indicator,
 .sf-navbar.rtl ul li:hover > a > .sf-sub-indicator,
-.sf-navbar.rtl ul li.sfHover > a > .sf-sub-indicator {
+.sf-navbar.rtl ul li.sfHover > a > .sf-sub-indicator,
+.sf-navbar.rtl ul span.nolink:hover > .sf-sub-indicator,
+.sf-navbar.rtl ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-navbar.rtl ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: 0 -100px;
 }
 .sf-navbar.rtl ul ul .sf-sub-indicator {
   background-position:  0 0;
 }
-.sf-navbar.rtl ul ul a > .sf-sub-indicator {
+.sf-navbar.rtl ul ul a > .sf-sub-indicator,
+.sf-navbar.rtl ul ul span.nolink > .sf-sub-indicator {
   background-position:  -10px 0;
 }
 .sf-navbar.rtl ul ul a:focus > .sf-sub-indicator,
 .sf-navbar.rtl ul ul a:hover > .sf-sub-indicator,
 .sf-navbar.rtl ul ul a:active > .sf-sub-indicator,
 .sf-navbar.rtl ul ul li:hover > a > .sf-sub-indicator,
-.sf-navbar.rtl ul ul li.sfHover > a > .sf-sub-indicator {
+.sf-navbar.rtl ul ul li.sfHover > a > .sf-sub-indicator,
+.sf-navbar.rtl ul ul span.nolink:hover > .sf-sub-indicator,
+.sf-navbar.rtl ul ul li:hover > span.nolink > .sf-sub-indicator,
+.sf-navbar.rtl ul ul li.sfHover > span.nolink > .sf-sub-indicator {
   background-position: 0 0;
 }
 .sf-navbar.rtl li li:hover > ul,

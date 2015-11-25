@@ -9,7 +9,7 @@
  * CHANGELOG: http://users.tpg.com.au/j_birch/plugins/superfish/changelog.txt
  */
 /*
- * This is not the original jQuery Supersubs plugin.
+ * This is not the original jQuery Superfish plugin.
  * Please refer to the README for more information.
  */
 
@@ -27,9 +27,11 @@
         var $$ = $(this), menu = getMenu($$), o = sf.op;
         clearTimeout(menu.sfTimer);
         menu.sfTimer=setTimeout(function(){
-          o.retainPath=($.inArray($$[0],o.$path)>-1);
-          $$.hideSuperfishUl();
-          if (o.$path.length && $$.parents(['li.',o.hoverClass].join('')).length<1){over.call(o.$path);}
+          if ($$.children('.sf-clicked').length == 0){
+            o.retainPath=($.inArray($$[0],o.$path)>-1);
+            $$.hideSuperfishUl();
+            if (o.$path.length && $$.parents(['li.',o.hoverClass].join('')).length<1){over.call(o.$path);}
+          }
         },o.delay);
       },
       getMenu = function($menu){
@@ -42,19 +44,20 @@
     return this.each(function() {
       var s = this.serial = sf.o.length;
       var o = $.extend({},sf.defaults,op);
-      o.$path = $('li.'+o.pathClass,this).slice(0,o.pathLevels).each(function(){
-        $(this).addClass([o.hoverClass,c.bcClass].join(' '))
-          .filter('li:has(ul)').removeClass(o.pathClass);
-      });
+      o.$path = $('li.'+o.pathClass,this).slice(0,o.pathLevels),
+      p = o.$path;
+      for (var l = 0; l < p.length; l++){
+        p.eq(l).addClass([o.hoverClass,c.bcClass].join(' ')).filter('li:has(ul)').removeClass(o.pathClass);
+      }
       sf.o[s] = sf.op = o;
 
       $('li:has(ul)',this)[($.fn.hoverIntent && !o.disableHI) ? 'hoverIntent' : 'hover'](over,out).each(function() {
-        if (o.autoArrows) addArrow( $('>a:first-child',this) );
+        if (o.autoArrows) addArrow( $(this).children('a:first-child, span.nolink:first-child') );
       })
       .not('.'+c.bcClass)
         .hideSuperfishUl();
 
-      var $a = $('a',this);
+      var $a = $('a, span.nolink',this);
       $a.each(function(i){
         var $li = $a.eq(i).parents('li');
         $a.eq(i).focus(function(){over.call($li);}).blur(function(){out.call($li);});
@@ -62,8 +65,16 @@
       o.onInit.call(this);
 
     }).each(function() {
-      var menuClasses = [c.menuClass];
-      if (sf.op.dropShadows  && !($.browser.msie && $.browser.version < 7)) menuClasses.push(c.shadowClass);
+      var menuClasses = [c.menuClass],
+      addShadow = true;
+      if ($.browser !== undefined){
+        if ($.browser.msie && $.browser.version < 7){
+          addShadow = false;
+        }
+      }
+      if (sf.op.dropShadows && addShadow){
+        menuClasses.push(c.shadowClass);
+      }
       $(this).addClass(menuClasses.join(' '));
     });
   };
@@ -73,9 +84,12 @@
   sf.op = {};
   sf.IE7fix = function(){
     var o = sf.op;
-    if ($.browser.msie && $.browser.version > 6 && o.dropShadows && o.animation.opacity!=undefined)
-      this.toggleClass(sf.c.shadowClass+'-off');
-    };
+    if ($.browser !== undefined){
+      if ($.browser.msie && $.browser.version > 6 && o.dropShadows && o.animation.opacity != undefined) {
+        this.toggleClass(sf.c.shadowClass+'-off');
+      }
+    }
+  };
   sf.c = {
     bcClass: 'sf-breadcrumb',
     menuClass: 'sf-js-enabled',
@@ -89,7 +103,7 @@
     pathLevels: 1,
     delay: 800,
     animation: {opacity:'show'},
-    speed: 'normal',
+    speed: 'fast',
     autoArrows: true,
     dropShadows: true,
     disableHI: false, // true disables hoverIntent detection
@@ -104,7 +118,7 @@
         not = (o.retainPath===true) ? o.$path : '';
       o.retainPath = false;
       var $ul = $(['li.',o.hoverClass].join(''),this).add(this).not(not).removeClass(o.hoverClass)
-          .find('>ul').addClass('sf-hidden');
+          .children('ul').addClass('sf-hidden');
       o.onHide.call($ul);
       return this;
     },
@@ -112,7 +126,7 @@
       var o = sf.op,
         sh = sf.c.shadowClass+'-off',
         $ul = this.addClass(o.hoverClass)
-          .find('>ul.sf-hidden').hide().removeClass('sf-hidden');
+          .children('ul.sf-hidden').hide().removeClass('sf-hidden');
       sf.IE7fix.call($ul);
       o.onBeforeShow.call($ul);
       $ul.animate(o.animation,o.speed,function(){ sf.IE7fix.call($ul); o.onShow.call($ul); });
