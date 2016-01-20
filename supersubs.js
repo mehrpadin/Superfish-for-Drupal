@@ -94,7 +94,7 @@
       // restore li floats to avoid IE bugs
       // set li width to full width of this ul
       // revert white-space to normal
-      $LIs.add($As).css({float:'',width:'',whiteSpace:''});
+      $LIs.add($As).css({float:'',width:'',whiteSpace:'normal'});
       // update offset position of descendant ul to reflect new width of parent.
       // set it to 100% in case it isn't already set to this in the CSS
       for (var c = 0; c < $LIs.length; c++) {
