@@ -51,7 +51,10 @@
           if (item.hasClass('sf-clicked')){
             // Depending on the preferred behaviour, either proceed to the URL.
             if (options.behaviour == 0){
-              window.location = item.attr('href');
+              url = item.attr('href');
+              if (typeof(url) != "undefined"){
+                window.location = url;
+              }
             }
             // or collapse the sub-menu.
             else if (options.behaviour == 1 || options.behaviour == 2){

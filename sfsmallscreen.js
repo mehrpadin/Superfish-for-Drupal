@@ -79,7 +79,7 @@
         for (var b = 0; b < parent.length; b++){
           var
           item = parent.eq(b),
-          path = item.is('a') ? item.attr('href') : '',
+          path = (item.is('a') && !!item.attr('href')) ? item.attr('href') : '',
           // Class names modification.
           itemClone = item.clone(),
           classes = (options.hyperlinkClasses) ? ((options.excludeClass_hyperlink && itemClone.hasClass(options.excludeClass_hyperlink)) ? itemClone.removeClass(options.excludeClass_hyperlink).attr('class') : itemClone.attr('class')) : '',
@@ -89,7 +89,7 @@
             classes += ' active';
           }
           // <option> has to be disabled if the item is not a link.
-          disable = item.is('span') || item.attr('href')=='#' ? ' disabled="disabled"' : '',
+          disable = (path == '') || (path == '#') ? ' disabled="disabled"' : '',
           // Crystal clear.
           subIndicator = 1 < level ? Array(level).join('-') + ' ' : '';
           // Preparing the <option> element.
