@@ -50,7 +50,7 @@
           // Already clicked?
           if (item.hasClass('sf-clicked')){
             // Depending on the preferred behaviour, either proceed to the URL.
-            if (options.behaviour == 0){
+            if (options.behaviour == 0 || options.behaviour == 2 && mode == 'window_width' && windowWidth > breakpoint) {
               window.location = item.attr('href');
             }
             // or collapse the sub-menu.
