@@ -43,7 +43,7 @@
             var
             child = children.eq(a),
             // Calculating and applying the new width to the item.
-            autoWidth = (((child[0].clientWidth * 100) / menuWidth) + difference) + '%';
+            autoWidth = (((child[0].clientWidth * 99.8) / menuWidth) + difference) + '%';
             child.css({width:autoWidth});
           }
         }
