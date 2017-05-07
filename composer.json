@@ -2,6 +2,7 @@
   "name": "mehrpadin/superfish",
   "homepage": "https://github.com/mehrpadin/Superfish-for-Drupal",
   "description": "Superfish library for the Drupal Superfish module.",
+  "type": "drupal-library",
   "repository": {
     "type": "git",
     "url": "git://github.com/mehrpadin/Superfish-for-Drupal"

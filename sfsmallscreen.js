@@ -71,7 +71,7 @@
       return refined;
     }
 
-    // Creating <option> elements out of t
+    // Creating <option> elements out of the menu.
     function toSelect(menu, level){
       var
       items = '',
@@ -90,12 +90,13 @@
           if (options.addSelected && item.hasClass('active')){
             classes += ' active';
           }
+          classes = (classes) ? ' class="' + classes + '"' : '';
           // <option> has to be disabled if the item is not a link.
           disable = item.is('span') || item.attr('href')=='#' ? ' disabled="disabled"' : '',
           // Crystal clear.
           subIndicator = 1 < level ? Array(level).join('-') + ' ' : '';
           // Preparing the <option> element.
-          items += '<option value="' + path + '" class="' + classes + '"' + disable + '>' + subIndicator + $.trim(item.text()) +'</option>',
+          items += '<option value="' + path + '"' + classes + disable + '>' + subIndicator + $.trim(item.text()) +'</option>',
           childUL = list.find('> ul');
           // Using the function for the sub-menu of this item.
           for (var u = 0; u < childUL.length; u++){
@@ -246,7 +247,7 @@
           // Creating the <option> elements.
           var newMenu = toSelect(refinedMenu, 1),
           // Creating the <select> element and assigning an ID and class name.
-          selectList = $('<select class="' + classes + '" id="' + menuID + '-select"/>')
+          selectList = $('<select' + classes + ' id="' + menuID + '-select"/>')
           // Attaching the title and the items to the <select> element.
           .html('<option>' + options.title + '</option>' + newMenu)
           // Attaching an event then.
