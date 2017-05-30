@@ -131,7 +131,7 @@
           // Removing style attributes and any unnecessary class.
           accordion.children('li').removeAttr('style').removeClass('sfHover');
           // Doing the same and making sure all the sub-menus are off-screen (hidden).
-          accordion.find('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden');
+          accordion.children('ul').removeAttr('style').not('.sf-hidden').addClass('sf-hidden');
           // Creating the accordion toggle switch.
           var toggle = '<div class="sf-accordion-toggle ' + styleClass + '"><a href="#" id="' + toggleID + '"><span>' + options.title + '</span></a></div>';
 
@@ -162,7 +162,7 @@
               // If the accordion is already expanded:
               // Hiding its expanded sub-menus and then the accordion itself as well.
               accordionElement.add(accordionElement.find('li.sf-expanded')).removeClass('sf-expanded')
-              .end().find('ul').hide()
+              .end().children('ul').hide()
               // This is a bit tricky, it's the same trick that has been in use in the main plugin for sometime.
               // Basically we'll add a class that keeps the sub-menu off-screen and still visible,
               // and make it invisible and removing the class one moment before showing or hiding it.
