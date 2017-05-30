@@ -269,8 +269,8 @@
       if (options.type == 'accordion'){
         $(id + '-toggle').parent('div').remove();
       }
-      // Crystal clear!
-      $(id).show();
+      // Remove inline CSS display property; less clear than simply using .show(), but respects stylesheet
+      $(id).css('display', '');
     }
 
     // Return original object to support chaining.
