@@ -288,7 +288,10 @@
       menu = $(this).eq(s),
       mode = options.mode;
       // The rest is crystal clear, isn't it? :)
-      if (mode == 'always_active'){
+      if (menu.children('li').length == 0){
+        // Skip empty menu which will not be visible and don't want to suddenly make it visible.
+      }
+      else if (mode == 'always_active'){
         convert(menu);
       }
       else if (mode == 'window_width'){
