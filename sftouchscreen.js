@@ -24,7 +24,10 @@
     }, options);
 
     function activate(menu){
-      var eventHandler = (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch)) ? ['click touchstart','mouseup touchend'] : ['click','mouseup'];
+      var touch = 'ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch),
+          eventHandler = touch ? ['click touchstart','mouseup touchend'] : ['click','mouseup'],
+          disableClick = false,
+          hasMoved = true;
       // Select hyperlinks from parent menu items.
       menu.find('li:has(ul)').children('a,span.nolink').each(function(){
         var item = $(this),
@@ -47,34 +50,45 @@
         }
         // No .toggle() here as it's not possible to reset it.
         item.bind(eventHandler[0], function(event){
-          // Already clicked?
-          if (item.hasClass('sf-clicked')){
-            // Depending on the preferred behaviour, either proceed to the URL.
-            if (options.behaviour == 0){
-              window.location = item.attr('href');
+          // Reject touch-generated click.
+          if (!disableClick || event.type != 'click') {
+            // Already clicked?
+            if (item.hasClass('sf-clicked')){
+              // Depending on the preferred behaviour, either proceed to the URL.
+              if (options.behaviour == 0){
+                window.location = item.attr('href');
+              }
+              // or collapse the sub-menu.
+              else if (options.behaviour == 1 || options.behaviour == 2){
+                event.preventDefault();
+                item.removeClass('sf-clicked');
+                parent.hideSuperfishUl().find('a,span.nolink').removeClass('sf-clicked');
+              }
             }
-            // or collapse the sub-menu.
-            else if (options.behaviour == 1 || options.behaviour == 2){
+            // Prevent the default action otherwise.
+            else {
               event.preventDefault();
-              item.removeClass('sf-clicked');
-              parent.hideSuperfishUl().find('a,span.nolink').removeClass('sf-clicked');
+              item.addClass('sf-clicked');
+              parent.showSuperfishUl().siblings('li:has(ul)').hideSuperfishUl().find('.sf-clicked').removeClass('sf-clicked');
             }
           }
-          // Prevent the default action otherwise.
-          else {
+          else
             event.preventDefault();
-            item.addClass('sf-clicked');
-            parent.showSuperfishUl().siblings('li:has(ul)').hideSuperfishUl().find('.sf-clicked').removeClass('sf-clicked');
-          }
+          hasMoved = event.type != 'touchstart';
         });
       });
 
       $(document).bind(eventHandler[1], function(event){
+        disableClick = !hasMoved;
         if (menu.not(event.target) && menu.has(event.target).length === 0){
           menu.find('.sf-clicked').removeClass('sf-clicked');
           menu.find('li:has(ul)').hideSuperfishUl();
         }
       });
+      if (touch)
+        $(document).bind('touchmove', function(event) {
+          hasMoved = true;
+        });
     }
     // Return original object to support chaining.
     // This is not necessary actually because of the way the module uses these plugins.
