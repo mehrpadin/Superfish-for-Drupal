@@ -5,10 +5,12 @@
  *
  * 1. Change the #YOUR-BLOCK-ID (below) to the ID of your Superfish block.
  *
- * 2. Add the CSS to your theme, either as a separate CSS file or as a part of the main CSS file.
+ * 2. Add the CSS to your theme, either as a separate CSS file or as a part of
+ *    the main CSS file.
  *
- * 3. Note that by removing the .sf-style-none, the style will be applied to the menu regardless of
- *    the "Style" selected in the Superfish block configuration.
+ * 3. Note that by removing the .sf-style-none, the style will be applied to
+ *    the menu regardless of the "Style" selected in the Superfish block
+ *    configuration.
  *
  */
 

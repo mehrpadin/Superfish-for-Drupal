@@ -3,6 +3,7 @@ About this directory
 
 This directory contains several ready-made Superfish styles.
 
-YOU SHOULD NOT edit these or any other file that is a part of the Superfish library.
+YOU SHOULD NOT edit any file that is a part of the Superfish library.
 
-Please refer to THEMES.txt and THEMES_SCSS.txt for how you can add Superfish CSS to your theme.
+Please refer to THEMES.txt and THEMES_SCSS.txt for how you can add Superfish
+CSS to your theme.
