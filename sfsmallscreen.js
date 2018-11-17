@@ -197,7 +197,7 @@
               if (options.accordionButton == 1 && parent.children('a.menuparent,span.nolink.menuparent').length > 0 && parent.children('ul').children('li.sf-clone-parent').length == 0){
                 var
                 // Cloning the hyperlink of the parent menu item.
-                cloneLink = parent.children('a.menuparent,span.nolink.menuparent').clone();
+                cloneLink = parent.children('a.menuparent').clone();
                 // Removing unnecessary classes and element(s).
                 cloneLink.removeClass('menuparent sf-with-ul').children('.sf-sub-indicator').remove();
                 // Wrapping the hyerplinks in <li>.
