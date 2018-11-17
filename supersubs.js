@@ -31,42 +31,44 @@
         $$ = $$.children('li').children('ul');
       }
       // cache all ul elements
-      var $ULs = $$.find('ul'),
-      // get the font size of menu.
-      // .css('fontSize') returns various results cross-browser, so measure an em dash instead
-      fontsize = $('<li id="menu-fontsize">&#8212;</li>'),
-      size = fontsize.attr('style','padding:0;position:absolute;top:-99999em;width:auto;')
-      .appendTo($$)[0].clientWidth; //clientWidth is faster than width()
-      // remove em dash
-      fontsize.remove();
+      var $ULs = $$.find('ul');
+      if ($ULs.length) {
+        // get the font size of menu.
+        // .css('fontSize') returns various results cross-browser, so measure an em dash instead
+        var fontsize = $('<li id="menu-fontsize">&#8212;</li>'),
+        size = fontsize.attr('style','padding:0;position:absolute;top:-99999em;width:auto;')
+        .appendTo($$)[0].clientWidth; //clientWidth is faster than width()
+        // remove em dash
+        fontsize.remove();
 
-      // loop through each ul in menu
-      for (var b = 0; b < $ULs.length; b++) {
-        var
-        // cache this ul
-        $ul = $ULs.eq(b);
-        // If a multi-column sub-menu, and only if correctly configured.
-        if (o.multicolumn && $ul.hasClass('sf-multicolumn') && $ul.find('.sf-multicolumn-column').length > 0){
-          // Look through each column.
-          var $column = $ul.find('div.sf-multicolumn-column > ol'),
-          // Overall width.
-          mwWidth = 0;
-          for (var d = 0; d < $column.length; d++){
-            resize($column.eq(d));
-            // New column width, in pixels.
-            var colWidth = $column.width();
-            // Just a trick to convert em unit to px.
-            $column.css({width:colWidth})
-            // Making column parents the same size.
-            .parents('.sf-multicolumn-column').css({width:colWidth});
+        // loop through each ul in menu
+        for (var b = 0; b < $ULs.length; b++) {
+          var
+          // cache this ul
+          $ul = $ULs.eq(b);
+          // If a multi-column sub-menu, and only if correctly configured.
+          if (o.multicolumn && $ul.hasClass('sf-multicolumn') && $ul.find('.sf-multicolumn-column').length > 0){
+            // Look through each column.
+            var $column = $ul.find('div.sf-multicolumn-column > ol'),
             // Overall width.
-            mwWidth += parseInt(colWidth);
+            mwWidth = 0;
+            for (var d = 0; d < $column.length; d++){
+              resize($column.eq(d));
+              // New column width, in pixels.
+              var colWidth = $column.width();
+              // Just a trick to convert em unit to px.
+              $column.css({width:colWidth})
+              // Making column parents the same size.
+              .parents('.sf-multicolumn-column').css({width:colWidth});
+              // Overall width.
+              mwWidth += parseInt(colWidth);
+            }
+            // Resizing the columns container too.
+            $ul.add($ul.find('li.sf-multicolumn-wrapper, li.sf-multicolumn-wrapper > ol')).css({width:mwWidth});
           }
-          // Resizing the columns container too.
-          $ul.add($ul.find('li.sf-multicolumn-wrapper, li.sf-multicolumn-wrapper > ol')).css({width:mwWidth});
-        }
-        else {
-          resize($ul);
+          else {
+            resize($ul);
+          }
         }
       }
     }
