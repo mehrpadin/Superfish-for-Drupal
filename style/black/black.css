@@ -47,6 +47,7 @@ ul.sf-menu.sf-style-black li li li {
 }
 ul.sf-menu.sf-style-black li:hover,
 ul.sf-menu.sf-style-black li.sfHover,
+ul.sf-menu.sf-style-black a.is-active,
 ul.sf-menu.sf-style-black a:focus,
 ul.sf-menu.sf-style-black a:hover,
 ul.sf-menu.sf-style-black span.nolink:hover {

@@ -47,6 +47,7 @@ ul.sf-menu.sf-style-white li li li {
 }
 ul.sf-menu.sf-style-white li:hover,
 ul.sf-menu.sf-style-white li.sfHover,
+ul.sf-menu.sf-style-white a.is-active,
 ul.sf-menu.sf-style-white a:focus,
 ul.sf-menu.sf-style-white a:hover,
 ul.sf-menu.sf-style-white span.nolink:hover {

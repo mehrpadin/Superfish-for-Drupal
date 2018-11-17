@@ -47,6 +47,7 @@ ul.sf-menu.sf-style-blue li li li {
 }
 ul.sf-menu.sf-style-blue li:hover,
 ul.sf-menu.sf-style-blue li.sfHover,
+ul.sf-menu.sf-style-blue a.is-active,
 ul.sf-menu.sf-style-blue a:focus,
 ul.sf-menu.sf-style-blue a:hover,
 ul.sf-menu.sf-style-blue span.nolink:hover {

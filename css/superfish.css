@@ -8,7 +8,7 @@
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
   height: 1px !important;
-  margin:  !important;
+  margin: !important;
   overflow: hidden !important;
   padding: 0 !important;
   width: 1px !important;
@@ -30,6 +30,13 @@ ul.sf-menu div {
 ul.sf-menu {
   line-height: 1.0;
   z-index: 497;
+}
+ul.sf-menu:after {
+  clear: both;
+  content: "";
+  height: 0;
+  display: block;
+  visibility: hidden;
 }
 ul.sf-menu ul {
   left: 0;
