@@ -87,7 +87,7 @@ ul.sf-menu .sf-with-ul {
   padding-right: 3em;
 }
 ul.sf-menu .sf-sub-indicator {
-  height: 12px;
+  height: 1em;
   line-height: 9999px;
   opacity: 0.75;
   overflow: hidden;
@@ -101,7 +101,7 @@ ul.sf-menu .sf-sub-indicator {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 12px;
+  width: 1em;
 }
 ul.sf-menu .sf-sub-indicator:after {
   content: "▼";
