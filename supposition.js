@@ -44,6 +44,7 @@
             else {
               $u.css({left:menuParentWidth + 'px',right:'auto'});
             }
+            $u.parent().addClass('sf-supposition-active');
           }
         }
         else {
@@ -54,6 +55,7 @@
             else {
               $u.css({right:menuParentWidth + 'px',left:'auto'});
             }
+            $u.parent().addClass('sf-supposition-active');
           }
         }
         var windowHeight = $w.height(),
