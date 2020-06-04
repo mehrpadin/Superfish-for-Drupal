@@ -55,13 +55,13 @@
             for (var d = 0; d < $column.length; d++){
               resize($column.eq(d));
               // New column width, in pixels.
-              var colWidth = $column.width();
+              var colWidth = Math.ceil($column.width());
               // Just a trick to convert em unit to px.
               $column.css({width:colWidth})
               // Making column parents the same size.
               .parents('.sf-multicolumn-column').css({width:colWidth});
               // Overall width.
-              mwWidth += parseInt(colWidth);
+              mwWidth += colWidth;
             }
             // Resizing the columns container too.
             $ul.add($ul.find('li.sf-multicolumn-wrapper, li.sf-multicolumn-wrapper > ol')).css({width:mwWidth});
