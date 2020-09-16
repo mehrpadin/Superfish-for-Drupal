@@ -155,7 +155,8 @@
           accordionElement = $('#' + accordionID),
           // Deciding what should be used as accordion buttons.
           buttonElement = (options.accordionButton < 2) ? 'a.menuparent,span.nolink.menuparent' : 'a.sf-accordion-button',
-          button = accordionElement.find(buttonElement);
+          button = accordionElement.find(buttonElement),
+          link = accordionElement.find('a.is-active:not(.menuparent)');
 
           // Attaching a click event to the toggle switch.
           $('#' + toggleID).on('click', function(e){
@@ -230,6 +231,27 @@
                 })
                 // Assuming Expand\Collapse buttons do exist, resetting captions, in those hidden sub-menus.
                 .parent().children('a.sf-accordion-button').text(options.expandText);
+              }
+            }
+          });
+
+          // Attach a click event to the menu items (not buttons).
+          link.on('click', function(e){
+            // Adding the sf-expanded class.
+            $('#' + toggleID).toggleClass('sf-expanded');
+            if (accordionElement.hasClass('sf-expanded')) {
+              // If the accordion is already expanded:
+              // Hiding its expanded sub-menus and then the accordion itself as well.
+              accordionElement.add(accordionElement.find('li.sf-expanded')).removeClass('sf-expanded')
+                  .end().children('ul').hide()
+                  // This is a bit tricky, it's the same trick that has been in use in the main plugin for some time.
+                  // Basically we'll add a class that keeps the sub-menu off-screen and still visible,
+                  // and make it invisible and removing the class one moment before showing or hiding it.
+                  // This helps screen reader software access all the menu items.
+                  .end().hide().addClass('sf-hidden').show();
+              // Changing the caption of any existing accordion buttons to 'Expand'.
+              if (options.accordionButton == 2) {
+                accordionElement.find('a.sf-accordion-button').text(options.expandText);
               }
             }
           });
